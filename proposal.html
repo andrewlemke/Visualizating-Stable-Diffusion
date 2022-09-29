@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+	<title>Visualizating Stable Diffusion
+</title>
+</head>
+<body>
+<h1>Visualizating Stable Diffusion Project Proposal
+</h1>
+
+<p><em>Lakshyana Kc and Andrew Lemke</em></p>
+
+<p>&nbsp;</p>
+
+<h2>One main citation</h2>
+
+<h4><br />
+High-Resolution Image Synthesis with Latent Diffusion Models</h4>
+
+<p><a href="https://arxiv.org/abs/2112.10752">https://arxiv.org/abs/2112.10752</a></p>
+
+<p>While the idea of diffusion dates back to 2005, it was not until recently that the results were realized. This paper builds on the previous diffusion paper by quickening the speed of training and inference. Instead of applying diffusion though the image (output) space, the authors advocate for diffusion in the latent space. The improved performance allows for more training while still putting forward quality results. The authors showed best performance in one metric and among the best performance in another metric, proving at minimum, equality to GAN models that dominated image and other generation tasks up to this point.</p>
+
+<p><br />
+&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<h4>Preliminary literature review of the topic</h4>
+
+<ul>
+	<li>Huggingface&rsquo;s blog on stable diffusion
+	<ul>
+		<li><a href="https://huggingface.co/blog/stable_diffusion">https://huggingface.co/blog/stable_diffusion</a></li>
+		<li>Code oriented discussion of stable diffusion.</li>
+	</ul>
+	</li>
+	<li>Hugingface blog on diffusion
+	<ul>
+		<li><a href="https://huggingface.co/blog/annotated-diffusion">https://huggingface.co/blog/annotated-diffusion</a></li>
+		<li>Theoretical discussion of diffusion models.</li>
+	</ul>
+	</li>
+	<li>Hugging Face diffusers colab notebook
+	<ul>
+		<li><a href="https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/diffusers_intro.ipynb">https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/diffusers_intro.ipynb</a></li>
+		<li>Sub reference: What are Diffusion Models?
+		<ul>
+			<li>https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
+			<ul>
+				<li>In depth discussion of diffusion models. Diffusion loss is the first topic; Some modelers prefer to predict the noise from the image, not predict the image minus the noise. Again, the issue of intractable scaling is raised, however approaches mentioned avoid the issue. With diffusion models, the noise scheduler plays an important role. A cosign sampler for the noise constants was found preferable to the linear sampler. Finally, several applications of diffuser models were highlighted,</li>
+			</ul>
+			</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li>Score based models
+	<ul>
+		<li><a href="https://yang-song.net/blog/2021/score/">https://yang-song.net/blog/2021/score/</a></li>
+		<li>Mathematically, estimating the probability density function for generation poses issues as the probability density must sum to 1, meaning each probability estimate must be scaled. This scaling factor is intractable. One solution is to use very specific architecture to avoid issues with estimating the scaling factor. The other approach is to instead use a neural network to estimate the grad of the log of the probability density function, which sidesteps the scalar estimation. This scoring method is based on this insight.</li>
+	</ul>
+	</li>
+	<li>Conv2d and ConvTransposed2d
+	<ul>
+		<li><a href="https://indico.cern.ch/event/996880/contributions/4188468/attachments/2193001/3706891/ChiakiYanagisawa_20210219_Conv2d_and_ConvTransposed2d.pdf">https://indico.cern.ch/event/996880/contributions/4188468/attachments/2193001/3706891/ChiakiYanagisawa_20210219_Conv2d_and_ConvTransposed2d.pdf</a></li>
+		<li>&ldquo;Reverse&rdquo; convolutions are a part of U-nets. This explains powerpoint from a presentation and explains their use. The U-nets used in diffusion act as mini auto encoders by bringing the noisy image into a lower dimension before scaling it up. While shortcutting and weight sharing were used since this work built on previous breakthroughs, an understanding of pytorch&rsquo;s ConvTransposed2d is necessary to understand any of the more advanced strategies used in the U-net that diffusion models rely on.</li>
+	</ul>
+	</li>
+	<li>Paper: Denoising Diffusion Probabilistic Models, the paper for a popular diffusion model
+	<ul>
+		<li><a href="https://arxiv.org/abs/2006.11239">https://arxiv.org/abs/2006.11239</a></li>
+		<li>This paper showed the theoretical diffusion based models in action. Using the score based techniques that avoid the intractability issues with probability density functions, the authors were able to train a model that can successfully exploit diffusion. Mathematical tricks are used to reformulate Langevin dynamics into a form ready where a neural network can do the heavy lifting. The authors also highlight the ability of their model to merge images, which is an aspect of diffusion models not highly publicized. A linear combination of two images is passed as the noisy input to the trained diffuser, which then merges the visual artifacts to produce a coherent image.</li>
+	</ul>
+	</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2>Proposal of the main question you wish to answer, and how you aim to do it</h2>
+
+<p>&nbsp;We seek to make a new visualization of the process of diffusion in the context of input text to image. The standard visualization shows the image-in-generation at various points in its de-noising. Our current idea begins the same way, grabbing images though the denoising process, but we will send these images through a separate denoising process and attempt to complete the remaining de-noising in one step. We expect to find a progress of images where visual inconsistencies reduce until the final image. Since stable latent diffusion builds on so many concepts, that themselves build on concepts, our visualization plan may change. For example, the U-net blocks in the diffuser use self attention among other advanced concepts taken from previous breakthroughs, like ResNet. Self attention requires an understanding of attention, itself a breakthrough concept that pushed the capabilities of AI.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>
