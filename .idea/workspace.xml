@@ -2,22 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a58336a-c4fd-4d10-9aed-715e535c98a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/img/daaam_cat_hm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/download 2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/monkey_hm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/sd_eleph.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/sd_spiderman.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/sd_spiderman_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Screen Shot 2022-10-23 at 9.43.41 PM.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/twodogs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Screen Shot 2022-10-23 at 9.44.03 PM.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/twodogshm.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Screen Shot 2022-10-23 at 9.54.56 PM.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/monkey.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Screen Shot 2022-10-23 at 9.55.08 PM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/daam_result_cat.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/daam_result_cat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/download.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/book.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/sd_fig_e.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/eleph_hm.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/sd_fig_eo.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/eleph.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/sd_fig_horses.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/sd_fig_horses.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_progress.html" beforeDir="false" afterPath="$PROJECT_DIR$/project_progress.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +55,7 @@
       <workItem from="1666591327916" duration="7000" />
       <workItem from="1666591476887" duration="334000" />
       <workItem from="1666591912197" duration="7276000" />
+      <workItem from="1666599757265" duration="412000" />
     </task>
     <servers />
   </component>
