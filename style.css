@@ -1,9 +1,13 @@
+
 body, td, th {
   font-family: 'Open Sans', sans-serif;
+  /*font-size: small;*/
 }
 h2 {
+
   margin-top: 3ex;
 }
+
 /* Deep blues */
 .color-primary-0 { color: #233BF5 }
 .color-primary-1 { color: #3314DE }
