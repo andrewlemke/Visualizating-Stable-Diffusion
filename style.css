@@ -3,8 +3,25 @@ body, td, th {
   font-family: 'Open Sans', sans-serif;
   /*font-size: small;*/
 }
-h2 {
 
+
+.fulljustify {
+  text-align:justify;
+}
+.fulljustify:
+after {
+  content: "    ";
+  display: inline-block;
+  width: 95%;
+}
+#tagline {
+  height: 80px;
+  overflow: hidden;
+  line-height: 80px; /* vert-center */
+}
+
+
+h2 {
   margin-top: 3ex;
 }
 

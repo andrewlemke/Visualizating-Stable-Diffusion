@@ -22,35 +22,94 @@
         Visualization</h3>
     <h5 class = "fst-italic text-muted">- Andrew Lemke & Lakshyana KC</h5>
     <!--      Second section start-->
-    <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-11 col-sm-10 col-10">
+    <div class="col-xxl-15 col-xl-10 col-lg-8 col-md-11 col-sm-10 col-15">
         <div class="mx-2">
 
-            <!-- Intro-->
+            <!-- Experiment 1-->
             <div class = "text-secondary" >
-                <h4 class="fw-bolder">Introduction</h4>
-                <p>
-                    The standard visualization for diffusion models is capturing the image at
-                    several points along the diffusion. The visualization appears as noise being
-                    removed from some image. This visualization is nice to look at, but doesn’t clue
-                    in to the “magic” happening. The viewers aren’t informed as to how or why the
-                    noise is reduced, or how a coherent image is formed from pure noise.
-                    One strategy our group tried aims to discover what is present in the noise and
-                    model by quickly denoising the image at those intermediate positions. This rapid
-                    de-noising attempts to show what information is held in the model and visible
-                    noisy image.
+                <h4 class="mt-5 fw-bolder text-nowrap">Experiment 1: Visualization of
+                    Intermediate Denoised Images</h4>
+
+                <p class="fulljustify"> The standard visualization for diffusion models is
+                    capturing the image at
+                several points along the diffusion. The visualization appears as noise being
+                removed from some image. While this visualization is nice to look at, it doesn’t clue
+                in to the “magic” happening. The viewers aren’t informed as to how or why the
+                noise is reduced, or how a coherent image is formed from pure noise.
+                One strategy our group tried aims to discover what is present in the noise and
+                model by quickly denoising the image at those intermediate positions. This rapid
+                de-noising attempts to show what information is held in the model and visible
+                noisy image.
+                </p>
+
+                <h4 class="fw-bolder text-nowrap">Creating the New Visualization</h4>
+
+                <p class="fulljustify"> For this visualization, we started with diffusion code from
+                    a hugging face blog post. The code covers setting up and training the model.
+                    The code outputs the standard visualization as a gif. This blog post uses the
+                    MNIST fashion dataset to train the model on as its small size allows for the
+                    model to train on systems with normal performance (taking overnight on Google
+                    Colab’s GPU runtime).
+                    To achieve our ends, we had to rewrite the sampler code to allow more freedom
+                    when performing diffusion. The sampling code is what uses the model to create
+                    an image from noise. Our new sampler allowed us to totally customize the
+                    schedule, which is the constant that affects the rate of diffusion. To see
+                    the information held in the model and weights at various points in the diffusion,
+                    we used large betas to rapidly denoise the image in a number of steps.
+                    To remain fair, we kept the total sum of the betas consistent. Below is
+                    the beta schedules for various “jumps,” which are the points where we
+                    dramatically denoised the image very quickly.
+                </p>
+
+                <!--        Figure -->
+                <div class="position-relative">
+                    <img src="./img/fig1.jpeg" class="img-fluid w-90 wd-border-y" />
+                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
+                </div>
+
+                <p class="fulljustify">
+                    Here are the cumulative sums of the betas for each of the jumps.
+                </p>
+
+                <!--        Figure -->
+                <div class="position-relative">
+                    <img src="./img/fig2.jpeg" class="img-fluid w-70 wd-border-y" />
+                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
+                </div>
+
+                <p class="fulljustify">
+                    These betas produced the following visualizations from the noisy images.
+                    To compare this method to the traditional visualization, it is shown below the
+                    new visualization for the same seed and model randomness.
+                </p>
+
+                <!--        Figure -->
+                <div class="position-relative">
+                    <img src="./img/mnist2.jpeg" class="img-fluid w-70 wd-border-y" />
+                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
+                </div>
+
+                <!--        Figure -->
+                <div class="position-relative">
+                    <img src="./img/minist1.jpeg" class="img-fluid w-70 wd-border-y" />
+                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
+                </div>
+
+
+                <p class="fulljustify">
+                    The new visualization shows some features of the output much quicker than the
+                    traditional visualization. All of the MNIST fashion pictures which the model
+                    was trained on are on a black border. The new method has this black border more
+                    prominent than the new visualization. Unfortunately, the new method does not
+                    show any large improvement over the traditional method. This could be due to
+                    the ultra-simplistic diffusion model created or to flaws in this approach.
                 </p>
 
             </div>
 
-            <!--        Main content with image and text-->
 
-            <!--        Main body image -->
-            <div class="position-relative">
-                <img src="./img/" class="img-fluid w-90 wd-border-y" />
-                <span class="text-white fs-4 fw-bold position-relative p-2">
-            SpaceX's Starship
-        </span>
-            </div>
+
+
 
 <!--            &lt;!&ndash;       post 1: &ndash;&gt;-->
 <!--            <div class="d-flex justify-content-between p-3">-->
