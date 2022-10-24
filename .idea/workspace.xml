@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a58336a-c4fd-4d10-9aed-715e535c98a4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/daam_cat.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/daam_result_cat.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/daam_result_cat.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_progress.html" beforeDir="false" afterPath="$PROJECT_DIR$/project_progress.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +57,7 @@
       <updated>1666591323505</updated>
       <workItem from="1666591327916" duration="7000" />
       <workItem from="1666591476887" duration="334000" />
-      <workItem from="1666591912197" duration="48000" />
+      <workItem from="1666591912197" duration="3343000" />
     </task>
     <servers />
   </component>

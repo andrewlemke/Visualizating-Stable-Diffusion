@@ -17,16 +17,17 @@
 
 <!--Main container with margin on top and bottom-->
 <div class="container p-2 my-3">
-    <h2 class="fw-bolder text-primary">Project Progress: Milestone 2</h2>
-    <h3 class = "mt-5 text-nowrap">Deep Learning Project Progress Diffusion Image Generation
+    <h2 class="fw-bold text-primary">Project Progress: Milestone 2</h2>
+    <h3 class = "mt-5 text-nowrap fw-bold">Deep Learning Project Progress Diffusion Image Generation
         Visualization</h3>
-    <h5 class = "fst-italic text-muted">- Andrew Lemke & Lakshyana KC</h5>
-    <!--      Second section start-->
+    <h5 class = "fst-italic text-muted mb-1">- Andrew Lemke & Lakshyana KC</h5>
+    <!--  Section start-->
     <div class="col-xxl-15 col-xl-10 col-lg-8 col-md-11 col-sm-10 col-15">
+
         <div class="mx-2">
 
             <!-- Experiment 1-->
-            <div class = "text-secondary" >
+            <div class = "text-dark" >
                 <h4 class="mt-5 fw-bolder text-nowrap">Experiment 1: Visualization of
                     Intermediate Denoised Images</h4>
 
@@ -42,7 +43,7 @@
                 noisy image.
                 </p>
 
-                <h4 class="fw-bolder text-nowrap">Creating the New Visualization</h4>
+                <h5 class="fw-bolder text-nowrap">Creating the New Visualization</h5>
 
                 <p class="fulljustify"> For this visualization, we started with diffusion code from
                     a hugging face blog post. The code covers setting up and training the model.
@@ -107,41 +108,103 @@
 
             </div>
 
+            <!-- Experiment 2-->
+            <div class = "text-dark" >
+                <h4 class="mt-5 fw-bolder text-wrap">Experiment 2: Probing into Stable Diffusion
+                    Model's Understanding from Prompt and Model Output Comparision
+                </h4>
+
+                <p class="fulljustify"> Stable Diffusion Models represent a major milestone in
+                    the progress of text-to-image generation task, with its hyper-realistic
+                    rendering and image generation capabilities. Its outputs suggest the model's
+                    ability to compose ideas and concepts that cannot simply be picked up from
+                    some of the images in the training data distribution. But what is the scope of
+                    this model and in what ways can we probe into the image outputs themselves to
+                    get a better understanding of the model's performance and limitations from the
+                    point of view of understanding of tangible concepts and ideas such common verbs,
+                    nouns, quantity and so on.
+                </p>
+
+                <h5 class="fw-bolder text-nowrap">Inference Outputs</h5>
+
+                <p class="fulljustify">
+                    Some of the model outputs from the initial experimentation are shown below.
+                </p>
+
+                <!--        Figure -->
+                <figure class="figure">
+                    <img src="./img/sd_monkey.png"
+                         class="figure-img img-fluid w-90 wd-border-y">
+                    <figcaption class="figure-caption fst-italic text-center">Figure: Image
+                        Outputs for
+                        Prompt:
+                        Monkey with a
+                        Halloween Costume. Inference Steps: 50</figcaption>
+                </figure>
+
+                <!--        Figure -->
+                <figure class="figure">
+                    <img src="./img/sd_cat.png" class="figure-img img-fluid w-90 wd-border-y center">
+                    <figcaption class="figure-caption fst-italic text-center">Figure: Image
+                        Outputs for
+                        Prompt:
+                        Cat chewing a gum smiling</figcaption>
+                </figure>
+
+                <p class="">
+                    Some of the model outputs from the initial experimentation are shown below.
+                </p>
+
+                <!--        Figure -->
+                <div class="position-relative">
+                    <img src="./img/fig1.jpeg" class="img-fluid w-90 wd-border-y" />
+                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
+                </div>
+
+                <p class="fulljustify">
+                    Here are the cumulative sums of the betas for each of the jumps.
+                </p>
 
 
+                <p class="fulljustify">
+                    These betas produced the following visualizations from the noisy images.
+                    To compare this method to the traditional visualization, it is shown below the
+                    new visualization for the same seed and model randomness.
+                </p>
+
+                <!--        Figure -->
+                <div class="position-relative">
+                    <img src="./img/mnist2.jpeg" class="img-fluid w-70 wd-border-y" />
+                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
+                </div>
+
+                <!--        Figure -->
+                <div class="position-relative">
+                    <img src="./img/minist1.jpeg" class="img-fluid w-70 wd-border-y" />
+                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
+                </div>
 
 
-<!--            &lt;!&ndash;       post 1: &ndash;&gt;-->
-<!--            <div class="d-flex justify-content-between p-3">-->
-<!--                &lt;!&ndash;        Web dev  post &ndash;&gt;-->
-<!--                <div class="col-md-8 col-9">-->
-<!--                    &lt;!&ndash;            meta data&ndash;&gt;-->
-<!--                    <div class="wd-posts-metadata mb-1">Web Development</div>-->
-<!--                    &lt;!&ndash;            author&ndash;&gt;-->
-<!--                    <div class="fw-bold wd-posts-author mb-1">-->
-<!--                        ReactJS-->
-<!--                        &lt;!&ndash;              verified&ndash;&gt;-->
-<!--                        <i class="fa-solid fa-circle-check mx-1"></i>-->
-<!--                        &lt;!&ndash;              time stamp&ndash;&gt;-->
-<!--                        <span class="wd-posts-metadata"> &middot 2h &nbsp</span>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash;            post title&ndash;&gt;-->
-<!--                    <div class="wd-posts-title">-->
-<!--                        React.js is a component based front end library that makes it-->
-<!--                        very easy to build Single Page Applications or SPAs-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                &lt;!&ndash;          image&ndash;&gt;-->
-<!--                <div class="my-auto col-md-2 col-3">-->
-<!--                    <img src="../img/react.png" class="img-fluid wd-posts-thumbnail" />-->
-<!--                </div>-->
+                <p class="fulljustify">
+                    The new visualization shows some features of the output much quicker than the
+                    traditional visualization. All of the MNIST fashion pictures which the model
+                    was trained on are on a black border. The new method has this black border more
+                    prominent than the new visualization. Unfortunately, the new method does not
+                    show any large improvement over the traditional method. This could be due to
+                    the ultra-simplistic diffusion model created or to flaws in this approach.
+                </p>
 
-<!--            </div> &lt;!&ndash; end of post 1&ndash;&gt;-->
+                <!--                    and-->
+                <!--                    Attention Heat Map Visualization using DAAM: Diffusion-->
+                <!--                    Attentive Attribution Maps-->
+
+            </div>
+<!--            Experiment 2 -->
 
 
-        </div>
+        </div> <!--Section div-->
 
-    </div><!-- End of section-->
+    </div><!-- End of section main div-->
 
 </div>
 </body>
