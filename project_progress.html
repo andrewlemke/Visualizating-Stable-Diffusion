@@ -65,7 +65,7 @@
                 <!--        Figure -->
                 <div class="position-relative">
                     <img src="./img/fig1.jpeg" class="img-fluid w-90 wd-border-y" />
-                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
+
                 </div>
 
                 <p class="fulljustify">
@@ -75,7 +75,6 @@
                 <!--        Figure -->
                 <div class="position-relative">
                     <img src="./img/fig2.jpeg" class="img-fluid w-70 wd-border-y" />
-                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
                 </div>
 
                 <p class="fulljustify">
@@ -87,13 +86,11 @@
                 <!--        Figure -->
                 <div class="position-relative">
                     <img src="./img/mnist2.jpeg" class="img-fluid w-70 wd-border-y" />
-                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
                 </div>
 
                 <!--        Figure -->
                 <div class="position-relative">
                     <img src="./img/minist1.jpeg" class="img-fluid w-70 wd-border-y" />
-                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
                 </div>
 
 
@@ -155,44 +152,6 @@
                     Some of the model outputs from the initial experimentation are shown below.
                 </p>
 
-                <!--        Figure -->
-                <div class="position-relative">
-                    <img src="./img/fig1.jpeg" class="img-fluid w-90 wd-border-y" />
-                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
-                </div>
-
-                <p class="fulljustify">
-                    Here are the cumulative sums of the betas for each of the jumps.
-                </p>
-
-
-                <p class="fulljustify">
-                    These betas produced the following visualizations from the noisy images.
-                    To compare this method to the traditional visualization, it is shown below the
-                    new visualization for the same seed and model randomness.
-                </p>
-
-                <!--        Figure -->
-                <div class="position-relative">
-                    <img src="./img/mnist2.jpeg" class="img-fluid w-70 wd-border-y" />
-                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
-                </div>
-
-                <!--        Figure -->
-                <div class="position-relative">
-                    <img src="./img/minist1.jpeg" class="img-fluid w-70 wd-border-y" />
-                    <span class="text-white fs-4 fw-bold position-relative p-2"></span>
-                </div>
-
-
-                <p class="fulljustify">
-                    The new visualization shows some features of the output much quicker than the
-                    traditional visualization. All of the MNIST fashion pictures which the model
-                    was trained on are on a black border. The new method has this black border more
-                    prominent than the new visualization. Unfortunately, the new method does not
-                    show any large improvement over the traditional method. This could be due to
-                    the ultra-simplistic diffusion model created or to flaws in this approach.
-                </p>
 
                 <!--                    and-->
                 <!--                    Attention Heat Map Visualization using DAAM: Diffusion-->
@@ -201,6 +160,118 @@
             </div>
 <!--            Experiment 2 -->
 
+            <!-- Experiment 3-->
+            <div class = "text-dark" >
+                <h4 class="mt-5 fw-bolder text-wrap">Experiment 3: Visualizing Attention Heat Maps
+                    Using DAAM: Diffusion Attentive Attribution Maps
+                </h4>
+
+                <p class="fulljustify"> The next part of our experiment was understanding
+                    the
+                    DAAM:
+                    Diffusion Attentive Attribution Maps paper that was motivated by the question:
+                    “Which parts of a generated image does an input word influence most?” (Tang
+                    R. et al, 2022). To help answer this, and interpret and understand the model,
+                    the authors proposed a novel interpretability method using attention heatmap
+                    visualization by upscaling and aggregating cross-attention
+                    activations in the latent denoising subnetwork. A similar text prompts from
+                    experiment 1 were used for visualization to help interpret the model's
+                    understanding from the regions of maximum attention.
+                </p>
+
+                <p class="fulljustify">
+                    As part of the first step in the experiment, the existing codebase from the
+                    cross attention based visualization was modified to run on different text
+                    prompts than the ones provided by the authors. The results of this experiment
+                    are shown below. Note: Due to the GPU and ram limitations, the model was run on 15 inference steps
+                    and 0.05 threshold (tau) value.
+                </p>
+
+                <h5 class="fw-bolder text-nowrap">Attention Heatmap Visualization Results</h5>
+
+
+                <!--        Figure -->
+                <figure class="figure">
+                    <img src="./img/daam_cat.png" class="figure-img img-thumbnail wd-border-y center">
+                    <img src="./img/daaam_cat_hm.png" class="figure-img img-thumbnail wd-border-y center">
+                    <figcaption class="figure-caption fst-italic text-center">Figure: Image and
+                        Attention
+                        Heat Map for
+                        Prompt:
+                        A smiling, red cat chewing gum</figcaption>
+                </figure>
+
+                <!--        Figure -->
+                <figure class="figure">
+                    <img src="./img/monkey.png"
+                         class="figure-img img-fluid w-90 wd-border-y">
+                    <img src="./img/monkey_hm.png"
+                         class="figure-img img-fluid w-90 wd-border-y">
+                    <figcaption class="figure-caption fst-italic text-center">Figure: Image and
+                        Attention
+                        Heat Map for
+                        Prompt:
+                        Monkey with halloween costume</figcaption>
+                </figure>
+
+                <!--        Figure -->
+                <figure class="figure">
+                    <img src="./img/twodogs.png"
+                         class="figure-img img-fluid w-90 wd-border-y">
+                    <img src="./img/twodogshm.png"
+                         class="figure-img img-fluid w-90 wd-border-y">
+                    <figcaption class="figure-caption fst-italic text-center">Figure: Image and
+                        Attention
+                        Heat Map for
+                        Prompt:
+                        Two dogs playing in the park</figcaption>
+                </figure>
+
+                <!--        Figure -->
+                <figure class="figure">
+                    <img src="./img/sd_horses_o.png"
+                         class="figure-img img-fluid w-90 wd-border-y">
+                    <img src="./img/sd_fig_horses.png"
+                         class="figure-img img-fluid w-90 wd-border-y">
+                    <figcaption class="figure-caption fst-italic text-center">Figure: Image and
+                        Attention
+                        Heat Map for
+                        Prompt:
+                        Three horses running in water</figcaption>
+                </figure>
+
+                <!--        Figure -->
+                <figure class="figure">
+                    <img src="./img/eleph.png"
+                         class="figure-img img-fluid w-90 wd-border-y">
+                    <img src="./img/eleph_hm.png"
+                         class="figure-img img-fluid w-90 wd-border-y">
+                    <figcaption class="figure-caption fst-italic text-center">Figure: Image and
+                        Attention
+                        Heat Map for
+                        Prompt:
+                        Four red elephants flying in the sky</figcaption>
+                </figure>
+
+
+
+                <div class="position-relative">
+                    <img src="./img/book.png"
+                         class="img-fluid w-90">
+                    <figcaption class="figure-caption fst-italic text-center">Figure: Image and
+                        Attention
+                        Heat Map for
+                        Prompt:
+                        A book flying out the window</figcaption>
+                </div>
+
+
+
+
+
+
+            </div>
+            <!--            Experiment 3-->
 
         </div> <!--Section div-->
 
