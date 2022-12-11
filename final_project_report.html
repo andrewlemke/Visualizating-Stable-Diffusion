@@ -549,30 +549,183 @@
 
                 </p>
 
-                <p class="fulljustify">
 
-                </p>
-
-                <p class="fulljustify">
-
-                </p>
 
                 <h4 class="mt-5 fw-bolder">Probe 4: Probing Visual Reasoning of Stable Diffusion
                 </h4>
 
+                <p class="fulljustify">
+                    Recently, models such as stable diffusion represent a significant milestone in text-Image generation, and have gained immense popularity and intrigue with the models generating hyper-realistic images for prompts such as “A photo of an astronaut riding a horse on Mars”. Such results indicate the model’s ability to compose ideas and concepts that cannot simply be picked up from some of the images in the training data distribution. However, due to the challenges in explainability and interpretability of these models, there hasn't been extensive research on the scope and limitations of these model’s visual reasoning abilities such as compositional reasoning, object recognition and counting, and spatial and object-attribute relationship understanding.
 
+                </p>
+
+                <p class="fulljustify">
+                    As a starting point to assess the visual reasoning abilities of the stable diffusion model, we implement the cross-attention based attribution method called DAAM to visualize the regions of most influence of each input word in a prompt on the generated image, to probe into what the model was “thinking” or paying attention to while generating the output. By assessing the patterns in attribution maps and attention distribution for different types of input words, we seek to gain a better insight into the extent of a model’s visual reasoning abilities.
+
+
+                </p>
+
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Methodology
+                </h4>
+
+                <p class="fulljustify">
+                    To carry out this research, we implemented the DAAM method to visualize the attention activation maps for each word of the prompt. In the initial experiment, we implemented this method to visualize the heat maps for a range of prompts that would require some compositional reasoning, action and object recognition, and counting to render realistic images. To further streamline the experiment to probe into the model’s visual reasoning abilities, the second experiment involved curating a list of 50-60 prompts sourced from the 1000 most frequently occurring words in COCO Image Caption dataset. The 1000 most frequent words were labeled with six different POS tags (NN, VB, JJ, DT, IN, PRP, and other) which also translate to different visual reasoning skills. For instance, we assume that visually, nouns (NN) and verbs (VB) correspond to object and action recognition skills, adjectives (JJ) correspond to object-attribute relationship understanding, and other categories (DT, PRP, IN, and other) correspond to spatial relation and counting understanding.
+                </p>
+
+                <p class="fulljustify">
+                    By performing a quantitative analysis of the attention weight distributions for different POS tags, we seek to compare any global patterns in the attention activations for different word types. Characterizing these patterns also helps assess the model’s performance in terms of the visual reasoning skills and identify any existing gaps in the model’s learning that could be further investigated and improved.
+                </p>
 
                 <h4 class="mt-5 fw-bolder text-nowrap">Experiment
                 </h4>
+
+                <p class="fulljustify">
+                    The initial analysis involved qualitatively assessing the attention activation maps for each input word using prompts that would require the model to compose different ideas and concepts to render a realistic representation. For instance, figures XXXXX represent some of the sample prompts and the resulting visualizations from the initial experiment.
+                </p>
+
+
+                //INSERT FIGURE XXXXX
+
+                <p class="fulljustify">
+                    From the initial experiment, we noticed highest and accurate attention activations for nouns, and verbs, and lower activations for attributes, and words corresponding to numbers. We decided to focus more on this behavior and characterize the attention activations for common verbs, nouns, adjectives, and other words that were among the 1000 most prevalent words in the COCO image caption dataset. We chose this dataset as this data was used to train the stable diffusion model and could help streamline the experiment by designing prompts using words more familiar to the model.  This dataset was tagged with six categories of POS tags to help compare attention weights distribution across different word types.
+                </p>
+
+
+                <p class="fulljustify">
+                    Using this approach, the second experiment involved visualizing the attention maps for 50-60 different prompts designed to test different visual reasoning abilities of the model. The results from these experiments are summarized below.
+                </p>
 
 
 
                 <h4 class="mt-5 fw-bolder text-nowrap">Results
                 </h4>
 
+                <p class="fulljustify">
+                    From the initial experiments, there were some distinct characteristics between the attention heat maps for input words corresponding to nouns and verbs versus those representing numbers, and determiners. While the nouns and verbs showed highest activations around regions representing the input words, the adjectives, numerals, and other word types mostly showed lower and more spread out attention activations. This could be attributed to the fact that adjectives, numerals, and other word types represent more generic concepts than verbs and nouns, which might be easier to recognize for the model.
+                </p>
 
-                <h4 class="mt-5 fw-bolder text-nowrap">Discussion
+
+                <p class="fulljustify">
+                    In the additional experiments, after carrying out several experiments using the “Comp Vis V1.4” and “Runway ML” stability diffusion models for 30 and 60 inference steps on 50-60 prompts curated from the frequent words from COCO caption dataset, we found similar behavior from the models overall. Some of the visualization results for different categories of prompts are shown in the tables (XXXXXXX)
+                </p>
+
+                <p class="fulljustify">
+                    In addition to the visual qualitative experiment, we computed the mean and standard deviation of the normalized attention scores for each input word across 50-60 prompts and categorized them by their POS tags, and plotted the corresponding plots for each category. These plots are shown in Figure (XXXXXX)
+
+                </p>
+
+            <p class="fulljustify">
+                Upon testing different visual skills of the two versions of the stable diffusion model, a similar pattern from the initial experiment was observed in the attention distribution characteristics. For the nouns and verbs based input words, the models generally displayed a strong and accurate attention map aligning with the actions and objects represented by the prompt, thus indicating a relatively more accurate object and action recognition skills. However, the attention weights’ patterns for numerals and other word types representing spatial and multiple object-attribute relationship understanding showed a weaker and lower alignment between words and heat map patterns.
+            </p>
+
+
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Limitations
                 </h4>
+
+                <p class="fulljustify">
+                    In our experiments, we have worked with a limited set of prompts and attempted to do some quantitative evaluations in addition to qualitative analyses. However, additional experiments would be needed to validate and understand the patterns we have observed in these experiments. In addition, for probe 4, we used the 1000 most frequent words from the COCO caption dataset, which consisted of an unequal distribution of POS tags, which might have limited our ability to assess the attention weights distribution patterns more accurately. So, the future experiments could investigate a uniform number of words from different tags for examining more generalized patterns in the attention weights.
+
+
+                </p>
+
+
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Conclusion
+                </h4>
+
+                <p class="fulljustify">
+                    Overall, through our multiple experiments in our research, we have probed and evaluated the diffusion model’s behavior and the diffusion process, and explored the extent and limitations of its visual reasoning abilities. In addition, we have also explored the extent of visual and compositional reasoning capability of the model and characterized the qualitative and quantitative patterns we have observed through our experiments. To discover more about the diffusion process, we constructed four probes that reveal behavior of the model not observable in the traditional visualization.
+
+
+                </p>
+
+                <p class="fulljustify">
+
+                    In probe 1, we observed a general trend in the diffusion process by altering the scheduling mid run to a schedule that informs the model to quickly finish the diffusion. Through this experiment, we observed that the model is performing useful actions that move it towards a clean coherent image earlier than one would assume when using the traditional visualization. The interesting effect where the quick finish degrades quality in later runs motivated us to seek alternate visualizations or metrics that inform us of the model’s actions and progress throughout the diffusion process.
+                </p>
+
+                <p class="fulljustify">
+
+                    In Probe 2, we examined the magnitude of the difference between the conditioned and unconditioned prompts. Through probe 2, we observed that the model may not use the prompt when altering the fine details of the image, which matches with the traditional visualizations’ insights, where the image loses some unnatural color and brightness noise, and appears independent of the actual content. Through probe 3, we visualized the conditioned-unconditioned difference map to see what the model is focusing on in one particular step. Overall, both Probes 1 and 3 both indicated that the model takes only a few steps to determine the sketch of the final output and showed the model’s focus at various steps.
+
+                </p>
+
+                <p class="fulljustify">
+                    Apart from exploring the diffusion process, in Probe 4, we implemented the diffusion attentive attribution maps (DAAM) method to visualize the stable diffusion model’s regions of influence for each input word in the prompt and quantify the attention weights distribution. Both quantitative and qualitative analyses indicated that the model has a higher understanding of actions and objects based on the prompts compared to their counts and relationships.
+
+                </p>
+
+                <p class="fulljustify">
+                    In addition, in some cases, we observed a varied performance of the model with accurate representations of all the components of the prompts in some cases, and missing objects or misalignment of spatial and object-attribute relationships in the other.
+                </p>
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Citations
+                </h4>
+
+                <ol>
+                    <li>Ho, J., Jain, A., & Abbeel, P.. (2020). Denoising Diffusion Probabilistic Models.
+                    </li>
+                    <ul>
+                        <li >
+                            <a href="https://arxiv.org/abs/2006.11239" target="_blank">https://arxiv.org/abs/2006.11239</a>
+                        </li>
+                    </ul>
+
+                    <li>Rogge, N.,& Rasul, K.. (2022). The Annotated Diffusion Model
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="https://huggingface.co/blog/annotated-diffusion"
+                               target="_blank">https://huggingface.co/blog/annotated-diffusion</a>
+                        </li>
+                    </ul>
+
+                    <li>Rombach, R., Blattmann, A., Lorenz, D., Esser, P., & Ommer, B. (2022). High-Resolution Image Synthesis With Latent Diffusion Models. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 10684-10695).
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="https://huggingface.co/CompVis/stable-diffusion-v1-4"
+                               target="_blank">https://huggingface.co/CompVis/stable-diffusion-v1-4
+                            </a>
+                        </li>
+                    </ul>
+
+
+                </ol>
+
+
+
+
+
+
 
 
 
