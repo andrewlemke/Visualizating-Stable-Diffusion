@@ -17,10 +17,10 @@
 <body class = "bg-light text-dark">
 
 <!--Main container with margin on top and bottom-->
-<div class="container p-2 my-3">
+<div class="container my-3">
     <div>
-        <h4 class="wd-grey">CS 7150 Final Project</h4> <!--  Heading-->
-        <h5 class="wd-grey">Deep Learning by Professor David Bau, Fall 2022</h5>
+        <h5 class="wd-grey">CS 7150 Final Project</h5> <!--  Heading-->
+        <h6 class="wd-grey">Deep Learning by Professor David Bau, Fall 2022</h6>
     </div>
 
 <!--    <h2>Link to Previous Reports</h2>-->
@@ -29,11 +29,12 @@
 <!--        <li><a href="./project_progress.html">Project Progress: Milestone 2</a></li>-->
 <!--    </ul>-->
 
-    <h2 class = "mt-5 text-nowrap wd-title">Probing Latent Diffusion</h2>
-    <h6 class = "fst-italic text-muted mb-1">Andrew Lemke & Lakshyana KC</h6>
 
     <!--  Section start-->
-    <div class="col-xxl-10 col-xl-9 col-lg-8 col-md-11 col-sm-10 col-15">
+    <div class="col-xxl-8 col-xl-7 col-lg-8 col-md-11 col-sm-10 col-15 mx-auto">
+
+        <h2 class = "pt-4 text-nowrap wd-title">Probing Latent Diffusion</h2>
+        <h6 class = "fst-italic text-muted mb-1">Andrew Lemke & Lakshyana KC</h6>
 
         <div class="mx-2">
 
@@ -85,12 +86,12 @@
                     Writing the q process is fairly simple. To calculate the q at the next timestep, we sample some gaussian from the previous timestep with a mean and variance that also depend on some parameter beta . Beta increases with t between (non inclusive) 0 and 1. The schedule of the betas can be altered as a hyperparameter of the process. The key point is that at time t=T, the image must be noised so much that it is indistinguishable from gaussian noise, in other words, no “signal” remains.
                 </p>
 
-                <p class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center">
                 <figure class="figure">
                     <img src="./img/part1/q process.PNG" class="figure-img img-fluid rounded" alt="figure.">
                     <figcaption class="figure-caption text-center">Figure 1.2: Forward nosing process (2).</figcaption>
                 </figure>
-                </p>
+                </div>
 
                 <p class="fulljustify">
                     The p process is the hard part, in fact, it is intractable as it requires knowing the total distribution of all images. The diffusion network is trained to learn how to do the p process. In practice, Ho et al. finds predicting the noise added “performs approximately as well as predicting [the mean] when trained on the variational bound with fixed variances, but much better [performance] when trained with our simplified objective,” alluding to some theoretical simplifications made in their paper.
@@ -107,24 +108,23 @@
                 </p>
 
 
-                <p class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center">
                 <figure class="figure">
-                    <img src="./img/part1/HF_stable_diffusion.png" width="400" height="400" class="figure-img img-fluid rounded" alt="figure.">
+                    <img src="./img/part1/HF_stable_diffusion.png" width="300" class="figure-img img-fluid rounded" alt="figure.">
                     <figcaption class="figure-caption text-center">Figure 1.3:  Latent diffusion inference, text to image (5).</figcaption>
                 </figure>
-                </p>
+                </div>
 
                 <p class="fulljustify">
                     In code, the process is slightly more complicated. To increase performance, the impact of the conditioning is boosted by a factor called the guidance scale. When the diffusion loop runs once, it actually diffuses two latents. One latent is diffused with the prompt and another is diffused without it, which in practice happens by conditioning it on an empty string embedded by the text encoder. The difference between these two can be seen as the impact of conditioning. It is calculated by subtracting the unconditioned latent (empty string one) from the conditioned latent (prompt one). This difference is multiplied by a scalar in the neighborhood of 5-10 and added to the unconditioned latent, increasing the impact of the prompt during the diffusion process. The code below is based on the “writing your own diffusion pipeline” section of citation number 5.
                 </p>
 
-                <p class="d-flex justify-content-center">
-                <figure class="figure">
-                    <img src="./img/part1/code example.PNG" width="450" height="400" class="figure-img img-fluid rounded" alt="figure.">
-                    <figcaption class="figure-caption text-center">Figure 1.4:  Latent diffusion inference, text to image (5).</figcaption>
-                </figure>
-                </p>
-
+                <div class="d-flex justify-content-center">
+                    <figure class="figure">
+                        <img src="./img/part1/code example.PNG" width="510"class="figure-img img-fluid rounded" alt="figure.">
+                        <figcaption class="figure-caption text-center">Figure 1.4:  Latent diffusion inference, text to image (5).</figcaption>
+                    </figure>
+                </div>
 
                 <h5 class="mt-5 text-nowrap">Diffusion Model Attribution</h5>
 
@@ -141,13 +141,14 @@
                     We thereby apply the DAAM attribution method to probe into the stable diffusion model to visualize the spatial locality of attribution conditioned on each input word. This attribution technique also enables a way to qualitatively study the stable diffusion model’s understanding of concepts and behavior for input words based on their parts of speech.
                 </p>
 
-                //FIGURE XXXX
-                <p class="d-flex justify-content-center">
-                <figure class="figure">
-                    <img src="./img/part1/" width="450" height="400" class="figure-img img-fluid rounded" alt="figure.">
-                    <figcaption class="figure-captions text-center">Figure 1.4:  .</figcaption>
-                </figure>
-                </p>
+                <div class="d-flex justify-content-center">
+                    <figure class="figure">
+                        <img src="./img/part2/image37.png" width="450" class="figure-img img-fluid rounded" alt="figure.">
+                        <figcaption class="figure-caption">Figure 1.5: Illustration of Attentive Attribution Computation for a word.</figcaption>
+                        <figcaption class="figure-caption">A- the multiscale attention arrays; B-the bicubic interpolation; C- resulting expanded maps;</figcaption>
+                        <figcaption class="figure-caption">D- summing the heat maps across the layers; E-thresholding. [6].</figcaption>
+                    </figure>
+                </div>
 
                 <h4 class="mt-5 fw-bolder text-nowrap">Acknowledgements</h4>
 
@@ -163,8 +164,13 @@
                     The standard visualization for latent diffusion takes the intermediate latents at various steps through the diffusion process. These intermediates then pass through a VAE to transform from latent space to image space. The effect does convey the principle idea behind diffusion–showing an image emerging from noise–but presents frustration. In a diffusion of 100 steps, the first 20 or so will just appear to be noise.Rapidly and without warning, an image appears. The primary subject (as indicated in the prompt) and background details both become distinguishable. We do not have insight into how the model came to this decision, whether the generation ever altered from its initial notion of the image, or see where focus is on each step. Questions arise like “what happens in the first 5 steps? Does the model randomly pick directions to push the image until one appears patterned enough to provide the diffuser with enough of an image to move forward with noise reduction?” and “Does the model change its mind?”
 
                 </p>
-                //FIGURE XXXX
 
+                <div class="d-flex justify-content-center">
+                <figure class="figure">
+                    <img src="./img/part1/traditional vis.png" width="450" height="400" class="figure-img img-fluid rounded" alt="figure.">
+                    <figcaption class="figure-caption text-center">Figure 1.6: The traditional visualization for “Rhino on a street”.</figcaption>
+                </figure>
+                </div>
 
                 <h4 class="mt-5 fw-bolder text-nowrap">Methodology & Experiment
                 </h4>
@@ -178,9 +184,13 @@
 
                 </p>
 
-                // Figure XXXX, Quick finish schedules and their cumulative sums [FILENAME: quick finish scheduler.png]
+                <div class="d-flex justify-content-center">
+                <figure class="figure">
+                    <img src="./img/part1/quick finish scheduler.png" width="450" height="400" class="figure-img img-fluid rounded" alt="figure.">
+                <figcaption class="figure-caption text-center">Figure 1.7: Quick finish schedules and their cumulative sums.</figcaption>
+                </figure>
+                </div>
 
-                <br><br/>
 
                 <p class="fulljustify">
 
@@ -196,25 +206,40 @@
                     If the quick finish uses a guidance of 0, then there is no conditioning from the prompt, meaning the vector representation of “Rhino in a street” never influences the second diffusion. If the idea in this prompt is not present in the results until the 10th latent, then we can conclude the latents before that have not made appreciable progress toward the end goal of that image. Its appearance in the guidance scale of 0.0 run shows us when the idea appears in the intermediate latents by removing the noise that permeates the early latents without adding any information. Since no prompt information is included in the second diffusion, we can be sure that the model is simply removing noise from the latent from the first diffusion.
                 </p>
 
-                //Figure X: Quick finish of “Rhino in a street” with 0.0 guidance scaling [FILENAME: rhino 0 guidance.png]
-<br/>
+                <div class="d-flex justify-content-center">
+                <figure class="figure">
+                    <img src="./img/part1/rhino 0 guidance.png" width="400" height="400" class="figure-img img-fluid rounded" alt="figure.">
+                <figcaption class="figure-caption text-center">Figure 1.8: Quick finish of “Rhino in a street” with 0.0 guidance scaling.</figcaption>
+                </figure>
+                </div>
+
 
                 <p class="fulljustify">
                     We can see from the first latent’s quick finish that the model has put 0 concepts from the prompt into the latent at this point. It appears abstract and vaguely monocolored.
 
                 </p>
 
-                //Figure X: Quick finish of first latent with 0 guidance in the quick finish. Prompt is “Rhino in a street” While the image looks cool, there is no Rhino or street [FILENAME: rhino 0 guidance lantent 0.png]
-</br>
+
+                <div class="">
+                <figure class="figure">
+                    <img src="./img/part1/rhino 0 guidance lantent 0.png" width="300" class="figure-img img-fluid rounded" alt="figure.">
+                    <figcaption class="figure-caption">Figure 1.9: Quick finish of first latent with 0 guidance in the quick finish.</figcaption>
+                    <figcaption class="figure-caption">Prompt is “Rhino in a street” While the image looks cool, there is no Rhino or street.</figcaption>
+                </figure>
+                </div>
 
                 <p class="fulljustify">
                     The fourth image appears to have some sort of animal form in it, which morphs into the Rhino in later latents. Since the transition from this animal amalgamation to an actual rhino form is gradual, we are hesitant to pinpoint a specific step where the idea of a rhino appears in the latent. At step 4, we see an animal form, and by step 9, it appears like a rhino.
                 </p>
 
-                //Figure X: Quick finish of latent 4 from “Rhino on a street” with 0.0 guidance. [FILENAME: rhino 0 guidance latent 4.png]
-                //Figure X: Quick finish of latent 4 from “Rhino on a street” with 0.0 guidance. [FILENAME: rhino 0 guidance latent 9.png]
+                <div class="">
+                    <figure class="figure">
+                        <img src="./img/part1/rhino 0 guidance lantent 4.png" width="300" class="figure-img img-fluid rounded" alt="figure.">
+                        <img src="./img/part1/rhino 0 guidance latent 9.png" width="300" class="figure-img img-fluid rounded" alt="figure.">
 
-                </br>
+                        <figcaption class="figure-caption">Figure 2.0: Quick finish of latent 4 (left) and latent 9 (right) from “Rhino on a street” with 0.0 guidance.</figcaption>
+                    </figure>
+                </div>
 
 
                 <p class="fulljustify">
@@ -233,9 +258,15 @@
                     When a guidance scale of 1.0 is used, we see the rhino from the first latent. A guidance scale of 1.0 is equivalent to diffusing with the prompt alone. This observation matches the results from the 0.0 guidance scaling run. The latent after run 0 in which guidance scaling of 1.0 has been diffused once with the prompt in the original run and 5 additional times in the quick finish with conditioning, giving it 6 total diffusion steps exposed to the prompt. In the 0.0 guidance scaling case, the 6th latent has been exposed to the prompt 6 times in the original run and 0 times in the quick finish. The rhino is visible in the image from the 6th latent.
                 </p>
 
-                //Figure X: Quick finish of “Rhino in a street” with 0.0 guidance scaling [FILENAME: rhino 1 guidance.png]
+                <div class="d-flex justify-content-center">
+                    <figure class="figure">
+                        <img src="./img/part1/rhino 1 guidance.png" width="300" class="figure-img img-fluid rounded" alt="figure.">
 
-                </br>
+                        <figcaption class="figure-caption">Figure 2.1: Quick finish of “Rhino in a street” with 0.0 guidance scaling.</figcaption>
+                    </figure>
+                </div>
+
+
 
                 <h4 class="mt-5 fw-bolder text-nowrap">Discussion</h4>
 
@@ -246,18 +277,18 @@
 
 
 
-                <h4 class="mt-5 fw-bolder text-nowrap"></h4>
+<!--                <h4 class="mt-5 fw-bolder text-nowrap"></h4>-->
 
-                <p class="fulljustify">
-                </p>
+<!--                <p class="fulljustify">-->
+<!--                </p>-->
 
 
-                <p class="d-flex justify-content-center">
-                <figure class="figure">
-                    <img src="./img/part1/" width="450" height="400" class="figure-img img-fluid rounded" alt="figure.">
-                    <figcaption class="figure-captions text-center">Figure 1.4:  .</figcaption>
-                </figure>
-                </p>
+<!--                <p class="d-flex justify-content-center">-->
+<!--                <figure class="figure">-->
+<!--                    <img src="./img/part1/" width="450" height="400" class="figure-img img-fluid rounded" alt="figure.">-->
+<!--                    <figcaption class="figure-captions text-center">Figure 1.4:  .</figcaption>-->
+<!--                </figure>-->
+<!--                </p>-->
 
 
 
@@ -270,5 +301,6 @@
     </div><!-- End of section main div-->
 
 </div>
+
 </body>
 </html>
