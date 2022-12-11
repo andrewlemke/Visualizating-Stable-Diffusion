@@ -99,20 +99,20 @@
                     The following model is often presented to describe the noising process. An image starts at time t=0, and q gradually adds noise to the image over a number of steps until the image is pure gaussian noise at t=T. The reverse process p removes the noise at a particular step. (1)
                 </p>
 
-                <p class="d-flex justify-content-center">
-                <figure class="figure">
-                    <img src="./img/part1/q and p.PNG" class="figure-img img-fluid rounded" alt="figure.">
-                    <figcaption class="figure-caption text-center">Figure 1.1: The noise addition and removal process from Ho, Jain, Abbeel (1).</figcaption>
-                </figure>
-                </p>
+                <div class="text-center">
+                    <figure class="figure">
+                        <img src="./img/part1/q and p.PNG" class="figure-img img-fluid rounded" width="500" alt="figure.">
+                        <figcaption class="figure-caption">Figure 1.1: The noise addition and removal process from Ho, Jain, Abbeel (1).</figcaption>
+                    </figure>
+                </div>
 
                 <p class="fulljustify">
                     Writing the q process is fairly simple. To calculate the q at the next timestep, we sample some gaussian from the previous timestep with a mean and variance that also depend on some parameter beta . Beta increases with t between (non inclusive) 0 and 1. The schedule of the betas can be altered as a hyperparameter of the process. The key point is that at time t=T, the image must be noised so much that it is indistinguishable from gaussian noise, in other words, no “signal” remains.
                 </p>
 
-                <div class="d-flex justify-content-center">
+                <div class="text-center">
                 <figure class="figure">
-                    <img src="./img/part1/q process.PNG" class="figure-img img-fluid rounded" alt="figure.">
+                    <img src="./img/part1/q process.PNG" class="figure-img img-fluid rounded" width="400" alt="figure.">
                     <figcaption class="figure-caption text-center">Figure 1.2: Forward nosing process (2).</figcaption>
                 </figure>
                 </div>
@@ -165,7 +165,7 @@
                     We thereby apply the DAAM attribution method to probe into the stable diffusion model to visualize the spatial locality of attribution conditioned on each input word. This attribution technique also enables a way to qualitatively study the stable diffusion model’s understanding of concepts and behavior for input words based on their parts of speech.
                 </p>
 
-                <div class="d-flex justify-content-center">
+                <div class="text-center">
                     <figure class="figure">
                         <img src="./img/part2/image37.png" width="450" class="figure-img img-fluid rounded" alt="figure.">
                         <figcaption class="figure-caption">Figure 1.5: Illustration of Attentive Attribution Computation for a word.</figcaption>
@@ -246,7 +246,7 @@
                 </p>
 
 
-                <div class="">
+                <div class="text-center">
                 <figure class="figure">
                     <img src="./img/part1/rhino 0 guidance lantent 0.png" width="300" class="figure-img img-fluid rounded" alt="figure.">
                     <figcaption class="figure-caption">Figure 1.9: Quick finish of first latent with 0 guidance in the quick finish.</figcaption>
@@ -258,7 +258,7 @@
                     The fourth image appears to have some sort of animal form in it, which morphs into the Rhino in later latents. Since the transition from this animal amalgamation to an actual rhino form is gradual, we are hesitant to pinpoint a specific step where the idea of a rhino appears in the latent. At step 4, we see an animal form, and by step 9, it appears like a rhino.
                 </p>
 
-                <div class="">
+                <div class="text-center">
                     <figure class="figure">
                         <img src="./img/part1/rhino 0 guidance lantent 4.png" width="300" class="figure-img img-fluid rounded" alt="figure.">
                         <img src="./img/part1/rhino 0 guidance latent 9.png" width="300" class="figure-img img-fluid rounded" alt="figure.">
@@ -284,7 +284,7 @@
                     When a guidance scale of 1.0 is used, we see the rhino from the first latent. A guidance scale of 1.0 is equivalent to diffusing with the prompt alone. This observation matches the results from the 0.0 guidance scaling run. The latent after run 0 in which guidance scaling of 1.0 has been diffused once with the prompt in the original run and 5 additional times in the quick finish with conditioning, giving it 6 total diffusion steps exposed to the prompt. In the 0.0 guidance scaling case, the 6th latent has been exposed to the prompt 6 times in the original run and 0 times in the quick finish. The rhino is visible in the image from the 6th latent.
                 </p>
 
-                <div class="d-flex justify-content-center">
+                <div class="text-center">
                     <figure class="figure">
                         <img src="./img/part1/rhino 1 guidance.png" width="300" class="figure-img img-fluid rounded" alt="figure.">
 
@@ -360,11 +360,10 @@
                 <h4 class="mt-5 fw-bolder text-nowrap">Results
                 </h4>
 
-                <div class="d-flex justify-content-center">
+                <div class="text-center">
                     <figure class="figure">
                         <img src="./img/part1/cond uncond analysis table.PNG" width="500" class="figure-img img-fluid rounded" alt="figure.">
-                    <figcaption class="figure-caption">Table 2.1: Analysis on the conditioned-unconditioned difference over multiple seeds and prompts.</figcaption>
-                    <figcaption class="figure-caption">Bolded numbers show places where a pattern formed between the good, mediocre (neither good or bad), and bad images. Underlining shows where the good synthesis led to values higher or lower than the rest of the runs’ values.
+                    <figcaption class="figure-caption" style="width: 19cm">Table 2.1: Analysis on the conditioned-unconditioned difference over multiple seeds and prompts. Bolded numbers show places where a pattern formed between the good, mediocre (neither good or bad), and bad images. Underlining shows where the good synthesis led to values higher or lower than the rest of the runs’ values.
                     </figcaption>
 
                     </figure>
@@ -379,7 +378,7 @@
                     The below plot shows the first method, the L2 norm of the difference, and the third method, the L2 norm of the difference between the conditioned and unconditioned latents after a 2x2 average pooling applied to each layer independently. The plots for both method 1 in the solid lines and method 3 in the dashed lines are shown below.
                 </p>
 
-                <div class="d-flex justify-content-center">
+                <div class="text-center">
                     <figure class="figure">
                         <img src="./img/part1/cond uncond agg plot.png" width="500" class="figure-img img-fluid rounded" alt="figure.">
                         <figcaption class="figure-caption">Figure 2.4: Conditioned-unconditioned aggregated with the first method (solid lines) and the third method (dashed lines)
@@ -418,28 +417,29 @@
                 <h4 class="mt-5 fw-bolder text-nowrap">Methodology
                 </h4>
 
-
                 When generating an image with latent diffusion, two latents are processed in each step of size (4, 64, 64). One is conditioned on the prompt and another is unconditioned, receiving an embedded empty string as its conditioning in practice. The difference between these two latents is calculated, scaled by a factor called the guidance scale (usually around 5-10, and is a hyperparameter one can set), and then added to the unconditioned prompt. Taking the difference of these latents, we can see the model’s behavior in terms of just the prompt impact. The model denoises and conditions on the prompt at the same time in each step, but by subtracting the unconditioned latent, we can remove the exclusively denoising changes. Technically, the model predicts the noise added on each step by the noising process, which is hypothetical when running the model in inference mode to generate new images. To calculate the difference between the latent after this predicted noise has been removed for both conditioned and unconditioned noise predictions, we start with the following:
-                <p>
+                <div>
                     <br>
                     \begin{aligned}
-                    \text{new conditioned latent} &= \text{old latent} - \text{noise conditioned} \text{ }\\
+                    \text{new conditioned latent} &= \text{old latent} - \text{noise conditioned} \\
                     \text{new unconditioned latent} &= \text{old latent} - \text{noise unconditioned} \text{ }\\
                     \end{aligned}
-                <div>
-                    The difference between these is
+                    <br>
+                    <div>
+                        The difference between these is
+                    </div>
+
                 </div>
 
-                </p>
-
-                <div class="">
+                <div class="text-nowrap">
+                    <br>
                     \begin{aligned}
                     \text{new conditioned latent} - \text{new unconditioned latent}\end{aligned}
                     \begin{aligned}
                     &= \text{(old latent} - \text{noise conditioned)} - \text{(old latent} - \text{noise unconditioned)}
                     \end{aligned}
                 </div >
-                <div class="">
+                <div class="text-nowrap">
                     \begin{aligned}
                     &= \text{old latent} - \text{noise conditioned} - \text{old latent} + \text{noise unconditioned}
                     \end{aligned}
