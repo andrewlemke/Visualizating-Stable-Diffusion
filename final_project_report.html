@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Project Progress: Milestone 2</title>
@@ -8,6 +8,27 @@
           rel="stylesheet"/>
     <!--  Font awesome-->
     <script src="https://kit.fontawesome.com/cc0f635f1e.js" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" id="MathJax-script" async
+            src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'>
+        MathJax.Hub.Config({
+            jax: ["input/TeX","output/HTML-CSS"],
+            displayAlign: "left",   // Change this to "center" to center equations.
+            padding: 0,           // Change this to adjust the spacing between equations and surrounding text.
+
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true },
+                availableFonts: ["TeX"]//, preferredFont: "TeX" }
+            },
+            TeX: {
+                extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+            }
+
+        });
+
+    </script>
 
     <!--  Style sheet link-->
     <link href="./style.css" rel="stylesheet" />
@@ -18,10 +39,6 @@
 
 <!--Main container with margin on top and bottom-->
 <div class="container my-3">
-    <div>
-        <h5 class="wd-grey">CS 7150 Final Project</h5> <!--  Heading-->
-        <h6 class="wd-grey">Deep Learning by Professor David Bau, Fall 2022</h6>
-    </div>
 
 <!--    <h2>Link to Previous Reports</h2>-->
 <!--    <ul>-->
@@ -33,8 +50,15 @@
     <!--  Section start-->
     <div class="col-xxl-8 col-xl-7 col-lg-8 col-md-11 col-sm-10 col-15 mx-auto">
 
-        <h2 class = "pt-4 text-nowrap wd-title">Probing Latent Diffusion</h2>
-        <h6 class = "fst-italic text-muted mb-1">Andrew Lemke & Lakshyana KC</h6>
+        <span class="d-flex justify-content-between"> <h6 class="wd-grey">CS 7150 Final Project</h6> <!--  Heading-->
+            <h6 class="wd-grey">Deep Learning by Professor David Bau, Fall 2022</h6>
+        </span>
+
+
+
+
+        <h1 class = "pt-4 text-nowrap wd-title text-center mt-5">Probing Latent Diffusion</h1>
+        <h6 class = "fst-italic text-muted mb-1 text-center">Andrew Lemke & Lakshyana KC</h6>
 
         <div class="mx-2">
 
@@ -157,7 +181,9 @@
 
                 </p>
 
-                <h4 class="mt-5 fw-bolder text-nowrap">Probe 1: “Rip Out” Images from Intermediate Latents
+
+
+                <h4 class="mt-5 fw-bolder">Probe 1: “Rip Out” Images from Intermediate Latents
                 </h4>
 
                 <p class="fulljustify">
@@ -275,26 +301,280 @@
                 </p>
 
 
+                <h4 class="mt-5 fw-bolder">Probe 2: Conditioned-unconditioned difference patterns in results with good and bad prompt manifestation
+                </h4>
+
+                <p class="fulljustify">
+                    Occasionally, the Huggingface model fails to produce the desired result, which happens when the text in the prompt is not matched or the resulting image possesses incoherence. In the first case, where the prompt is not followed properly, the impact of the guidance may not be strong enough. Alternatively, if the conditioning’s impact in the first part of the diffusion is not great enough, then the ideas in the latent may be “set” incorrectly or not enough. We investigate to see which, if any, is the case.
+
+                </p>
 
 
-<!--                <h4 class="mt-5 fw-bolder text-nowrap"></h4>-->
+                <h4 class="mt-5 fw-bolder text-nowrap">Methodology
+                </h4>
 
-<!--                <p class="fulljustify">-->
-<!--                </p>-->
+                <p class="fulljustify">
+                    To investigate the idea synthesis, we examined the magnitude of the difference between the conditioned and unconditioned prompts. Three methods were devised to calculate this difference. The first method is the simplest, it is the L2 norm of the difference between the conditioned and unconditioned latent. The latents are of shape (4, 64, 64) and the difference is too. The L2 norm is computed of this flattened difference. The second method looked to smooth out any differences due to changes in where objects borders are. If the conditioning translated an object left a pixel, a large difference would appear very great under the first method since there would be many many mismatches between the object and its shifted position after conditioning even though the only change is a translation one pixel leftward. To remedy this, the second method uses a 3d average pooling kernel of shape (4, 2, 2). 4 is the channel dimension, and (2, 2) are the spatial dimensions. After the pooling, the L2 norm of the difference of the conditioned and unconditioned latent is measured. The last method keeps the channels independent in pooling, using a (2, 2) average pooling kernel for each layer. Again, the L2 norm of the difference of the conditioned and unconditioned latent is captured. There is no padding in the second and third method, and each kernel’s stride length is set to 2, its spatial dimension.
+                </p>
+
+                <p class="fulljustify">
+                    The idea for this investigation came when examining some series of runs for a single prompt. A pattern emerged when plotting the difference between the conditioned and unconditioned split by good or bad prompt synthesis (putting each thing specified in the prompt into the image). The runs with good prompt synthesis have conditioning that rises and peaks mid way through before abating and then dropping off. The poorly synthesized images have a conditioning difference that rises and plateaus until the end. The below figure shows this effect using the third strategy pools at each layer.
+
+                </p>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="figure">
+                        <img src="./img/part1/pyramids conditioning diff.png" width="400" class="figure-img img-fluid rounded" alt="figure.">
+                        </figure>
+                </div>
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Experiment
+                </h4>
 
 
-<!--                <p class="d-flex justify-content-center">-->
-<!--                <figure class="figure">-->
-<!--                    <img src="./img/part1/" width="450" height="400" class="figure-img img-fluid rounded" alt="figure.">-->
-<!--                    <figcaption class="figure-captions text-center">Figure 1.4:  .</figcaption>-->
-<!--                </figure>-->
-<!--                </p>-->
+
+                <p class="fulljustify">
+                    To examine the pattern, many instances over many prompts must be run, and the results must be classified as good or bad. A third classification of neither is used for images that are somewhere in between. The below example shows one of our classifications for the prompt “Clowns in the US Capitol Building.” A good synthesis of ideas does not always indicate a high quality result; an image may include the whole prompt but look distorted.
+                </p>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="figure">
+                        <img src="./img/part1/clowns bad.png" width="200" class="figure-img img-fluid rounded" alt="figure.">
+                        <img src="./img/part1/clowns ok.png" width="200" class="figure-img img-fluid rounded" alt="figure.">
+                        <img src="./img/part1/clowns good.png" width="200" class="figure-img img-fluid rounded" alt="figure.">
+                        <figcaption class="figure-caption text-center">Figure 2.3: A bad, ok, and good synthesis of the idea.</figcaption>
+
+                    </figure>
+                </div>
+
+                <p class="fulljustify">
+                    The actual effect of the three different methods of difference calculation is slight. We prefer the last way since it provides the benefit of pooling over minor translation issues but keeps the channels separate, since there is no reason to pool over them since each channel may be different and not related in value to the other channels in a way that makes pooling over channels interesting or useful. An example for an image points this out. Suppose image A is all red and image B is all blue. The difference between these images is drastic. A-B will be 255 in all the red channels, -255 in all the blue channels and 0 in the green channels. A 3d 1x1 average pooling strategy will perform (255 + (-255) + 0) / 3 = 0, negating the clear color difference.
+
+                </p>
+
+
+                <p class="fulljustify">
+                    A total of 130 images were generated, a prompt was run for 20 or 30 times, with varying seeds. Analysis seeks to capture the trend in the Kansas plot using a variety of mathematical strategies. The metrics are: the location of the maximum difference, the sum of the differences both pre and post the maximum index, the ratio of those two numbers calculated on a per diffusion basis, the pre and post run slope over the 10 preceding or trailing steps, and the mean difference for steps 60 to 80 and for steps 18 to 24. These statistics were run for the raw differences and for the differences scaled so the maximum is 1.0.
+                </p>
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Results
+                </h4>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="figure">
+                        <img src="./img/part1/cond uncond analysis table.PNG" width="500" class="figure-img img-fluid rounded" alt="figure.">
+                    <figcaption class="figure-caption">Table 2.1: Analysis on the conditioned-unconditioned difference over multiple seeds and prompts.</figcaption>
+                    <figcaption class="figure-caption">Bolded numbers show places where a pattern formed between the good, mediocre (neither good or bad), and bad images. Underlining shows where the good synthesis led to values higher or lower than the rest of the runs’ values.
+                    </figcaption>
+
+                    </figure>
+                </div>
+
+
+                <p class="fulljustify">
+                    The results prove that over many different prompts and seeds, the pattern observed in the several runs of the “pyramids in Kansas” prompt does not hold true to a great extent. Only in the index of the maximum difference, the scaled sum of all differences for all steps, and the mean of the scaled sum for steps 18-24 followed a trend where the good and bad synthesis values are on opposite extremes and the mediocre synthesis is somewhere in between. I would expect more metrics from above to follow this trend if the trend was significant.
+                </p>
+
+                <p class="fulljustify">
+                    The below plot shows the first method, the L2 norm of the difference, and the third method, the L2 norm of the difference between the conditioned and unconditioned latents after a 2x2 average pooling applied to each layer independently. The plots for both method 1 in the solid lines and method 3 in the dashed lines are shown below.
+                </p>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="figure">
+                        <img src="./img/part1/cond uncond agg plot.png" width="500" class="figure-img img-fluid rounded" alt="figure.">
+                        <figcaption class="figure-caption">Figure 2.4: Conditioned-unconditioned aggregated with the first method (solid lines) and the third method (dashed lines)
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <p class="fulljustify">
+                    We observe a pattern here different from the “pyramids in Kansas” run. The pattern is still distinct enough to be present in this plot where 58 good runs and 36 bad runs were averaged to produce the lines. The poorly synthesized lines peak early, dip, then slowly rise and fall, while the generations with good synthesis generally rise until the halfway point and then fall. While this may look promising, high variance between runs, even runs of the same prompt with different seeds, makes finding this pattern in an individual run difficult.
+
+                </p>
+
+                <p class="fulljustify">
+                    More broadly examining the plot shows us a general trend in the diffusion. We see the difference between the conditioned and unconditioned latents stay high in the middle 80% of the diffusion process. It steeply declines toward the end, indicating the model does not use the prompt when altering the fine details of the image. This observation matches the traditional visualizations insight’s, where the image loses some unnatural color and brightness noise, which appears independent of the actual content.
+                </p>
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Discussion
+                </h4>
+
+                <p class="fulljustify">
+                    The pattern visible in the “pyramids of Kansas” generations does not generalize. On most metrics shown in the table, the good and bad synthesis are similar with a few exceptions. When aggregating over all runs, a pattern does appear, but the high variability of each independent run makes using this pattern difficult. If good or bad latent diffusion generations had a distinct signature, then one could apply it to pre filter results by generating some number of images from a prompt with different seeds and using the signatures to pick the best or discard the worst or sort the output to show the best images first.
+                </p>
+
+                <p class="fulljustify">
+                    While good and bad runs show up distinctly in the plot and have a few “tells” in the metrics from the table, the weakness of these indicators compared to the variability between runs negates their significance greatly. Examining the manifestation of ideas in diffusion is still a concept worth investigating, and we think the investigation should look elsewhere to gain insight into prompt impact on the latent’s diffusion.
+                </p>
+
+            <h4 class="mt-5 fw-bolder">Probe 3: Conditioned-unconditioned difference to examine the model’s focus during the diffusion process
+            </h4>
+
+                <p class="fulljustify">
+                    Rather than examining the aggregate differences between good and bad prompt synthesis, we next examined the difference between the conditioned and unconditioned latent at each step of diffusion. The magnitude of the difference at each position in the latent is used to create a difference map which indicates what the impact of the conditioning is on diffusion when the impact of the denoising of the model is removed. In other words, what is the impact of only the conditioning on the prompt.
+
+                </p>
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Methodology
+                </h4>
+
+
+                When generating an image with latent diffusion, two latents are processed in each step of size (4, 64, 64). One is conditioned on the prompt and another is unconditioned, receiving an embedded empty string as its conditioning in practice. The difference between these two latents is calculated, scaled by a factor called the guidance scale (usually around 5-10, and is a hyperparameter one can set), and then added to the unconditioned prompt. Taking the difference of these latents, we can see the model’s behavior in terms of just the prompt impact. The model denoises and conditions on the prompt at the same time in each step, but by subtracting the unconditioned latent, we can remove the exclusively denoising changes. Technically, the model predicts the noise added on each step by the noising process, which is hypothetical when running the model in inference mode to generate new images. To calculate the difference between the latent after this predicted noise has been removed for both conditioned and unconditioned noise predictions, we start with the following:
+                <p>
+                    <br>
+                    \begin{aligned}
+                    \text{new conditioned latent} &= \text{old latent} - \text{noise conditioned} \text{ }\\
+                    \text{new unconditioned latent} &= \text{old latent} - \text{noise unconditioned} \text{ }\\
+                    \end{aligned}
+                <div>
+                    The difference between these is
+                </div>
+
+                </p>
+
+                <div class="">
+                    \begin{aligned}
+                    \text{new conditioned latent} - \text{new unconditioned latent}\end{aligned}
+                    \begin{aligned}
+                    &= \text{(old latent} - \text{noise conditioned)} - \text{(old latent} - \text{noise unconditioned)}
+                    \end{aligned}
+                </div >
+                <div class="">
+                    \begin{aligned}
+                    &= \text{old latent} - \text{noise conditioned} - \text{old latent} + \text{noise unconditioned}
+                    \end{aligned}
+                    \begin{aligned}
+                    &= \text{noise unconditioned} - \text{noise conditioned}
+                    \end{aligned}
+                </div >
+
+
+                <p class="fulljustify">
+                    <br>
+                    Which is just the difference between the predicted noise. Since we will take the L2 norm of this noise down the channel dimension, the order of subtraction does not matter.
+                </p>
+
+                <p class="fulljustify">
+                    The L2 norm of the difference between the conditioned and unconditioned latent is recorded at each step during the diffusion process. We experimented with using the other difference calculation methods explained in Probe 2, but decided against using them. Their pooling helps smooth over differences to make calculating bigger trends from the data less noisy. Here, we only look at one latent difference at a time, so this pooling is not needed. We display the difference in a map where the bigger differences appear as darker colors. This image representation of the latent appears sensicle and easily interpretable without more advanced conditioned-unconditioned difference calculations, so we chose to use the simpler difference calculation scheme.
+                </p>
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Experiment
+                </h4>
+
+                <p class="fulljustify">
+                    60 generations were performed and the latents were stored. 3 prompts were used with 20 seeds for unique images. The intermediate steps (after the scheduler removed the noise) were captured as well. The differences and intermediates after being passed through the VAE are displayed side by side or separately. There is an option in the code to display every n latent difference and intermediate as all 100 images displayed for both methods can be excessive.
+                </p>
+
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Results
+                </h4>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="figure">
+                        <img src="./img/part1/traditional vs new.png" width="300" class="figure-img img-fluid rounded" alt="figure.">
+                 </figure>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <figcaption class="figure-caption text-center"
+                                style="width:12cm">
+                        Figure 2.5: Traditional visualization (left) and latent difference map (right) for the prompt “pyramids in Kansas”</figcaption>
+                </div>
+
+
+                <p class="fulljustify">
+                    The above figure shows the traditional visualization and the difference map shown side by side. The traditional visualization shows the cumulative progress in the diffusion process while the conditioned-unconditioned difference map shows what the model is focusing on in one particular step. At step 5, we can see the conditioning already drawing the forms of the pyramid, which do not become visible in the traditional visualization until roughly 20 more steps. The model also creates a large conditioned-unconditioned difference in the area of the image that will become the sky. In step 15, the conditioned-unconditioned difference shows fields being emphasized as well as the pyramid forms. A roadway is shown with the slanted line under the pyramids. Toward the end of the diffusion, we see differences spread over the whole image. This may be texture and details being drawn. In the last 5-10 steps, the total impact of conditioning lessens as the model is mainly removing noise from a nearly complete image.
+
+                </p>
+
+                <div class="text-center">
+                    <figure class="figure">
+                        <img src="./img/part1/eiffel tower/steop 0.PNG" width="300" class="figure-img img-fluid rounded" alt="figure.">
+                        <img src="./img/part1/eiffel tower/step 15 details.PNG" width="300" class="figure-img img-fluid rounded" alt="figure.">
+                        <img src="./img/part1/eiffel tower/35 shadow.PNG" width="300" class="figure-img img-fluid rounded" alt="figure.">
+                        <img src="./img/part1/eiffel tower/end.PNG" width="300" class="figure-img img-fluid rounded" alt="figure.">
+                    </figure>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <figcaption class="figure-caption text-center"
+                                style="width:12cm">
+                        Figure 2.6: Conditioned-unconditioned map for selected steps from prompt “small marble statue of the eiffel tower on a desk”
+                    </figcaption>
+                </div>
+
+                <p class="fulljustify">
+                    In the above figures, we again see the ideas from the prompt manifest much quicker in this new visualization compared to the traditional one. As soon as after the first diffusion step (step 0) the outline of the Eiffel Tower is visible. In step 15, details such as the deck at the top of the towner, the deck at the bottom, and the arches appear. The traditional visualization is still just uninterpretable noise. At step 25, the shadow to the left of the tower is brought about due to the conditioning. Similarly, the conditioned-unconditioned difference diminishes as the diffusion reaches the final few steps.
+                </p>
+
+
+                <div class="text-center">
+                    <figure class="figure">
+                        <img src="./img/part1/traditional vs new_dog.png" width="300" class="figure-img img-fluid rounded" alt="figure.">
+                    </figure>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <figcaption class="figure-caption text-center"
+                                style="width:12cm">
+                        Figure 2.7:  Conditioned-unconditioned map for prompt “labrador in the style of van gogh” </figcaption>
+                </div>
+
+
+                <p class="fulljustify">
+                    This last figure is provided to illustrate the new visualization technique once more.
+                </p>
+
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Discussion
+                </h4>
+
+                <p class="fulljustify">
+                    This new visualization technique pulls back the veil of the noise particularly visible in the first half of the traditional diffusion to show us what the model is working on at each diffusion step. We can see that the model rapidly starts using the conditioning to place objects from the embedded text prompt into the image. The traditional visualization does not clue us into this process as the forms of items and concepts from the text conditioning do not appear in it until much later.
+
+                </p>
+
+
+                <p class="fulljustify">
+                    This visualization allows us to see that the model does not really change its mind. After just a few steps, the outlines of the objects that appear in the final image are visible. These outlines do not change.
+                    Further, we see that the model takes an intuitive approach toward drawing. The shapes come first, then interior details. As seen in all three prompts from this section, the general form appears in about 5 steps. The details (e.g. dog’s eyes, Eiffel Tower decks) come after. The model focuses on details in the later steps, particularly the last half, This is seen in the concentration of changes. In early stages, the differences between the conditioned and unconditioned latenets are strong or not apparent–the model works on large features. In the later stages (particularly visible in the last example with the Lab) the impact of the conditioning is high across the whole image.
+
+                </p>
+
+                <p class="fulljustify">
+                    The inability to show color weakens this visualization. This prevents us from seeing where information from the conditioning such as “red” or “wooden” appears as these details reside in the different channels of the latent. One potential strategy to improve the visualization is to take the conditioned unconditioned difference, scale it, and add it to a latent that just produces a gray image when passed through the VAE. It is unclear how to scale the difference best for this approach or if it would work at all.
+
+                </p>
+
+                <p class="fulljustify">
+                    Through this new visualization, we have found trends in latent diffusion generation. The model takes a logical (from a human perspective) approach to drawing the images. The beginning steps, where it appears little progress is being made in the traditional visualization, are where major decisions about the final form are made, indicating some of the most important work of the model occurs here.
+
+                </p>
+
+                <p class="fulljustify">
+
+                </p>
+
+                <p class="fulljustify">
+
+                </p>
+
+                <h4 class="mt-5 fw-bolder">Probe 4: Probing Visual Reasoning of Stable Diffusion
+                </h4>
 
 
 
+                <h4 class="mt-5 fw-bolder text-nowrap">Experiment
+                </h4>
 
 
-            <!--            Experiment 3-->
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Results
+                </h4>
+
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Discussion
+                </h4>
+
+
 
         </div> <!--Section div-->
 
