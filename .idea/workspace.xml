@@ -2,34 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a58336a-c4fd-4d10-9aed-715e535c98a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/final_project_report.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/HF_stable_diffusion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/clowns bad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/clowns good.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/clowns ok.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/code example.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/cond uncond agg plot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/cond uncond analysis table.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/eiffel tower/35 shadow.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/eiffel tower/desktop.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/eiffel tower/end.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/eiffel tower/steop 0.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/eiffel tower/step 15 details.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/pyramids conditioning diff.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/q and p.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/q process.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/quick finish rhino.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/quick finish scheduler.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/rhino 0 guidance lantent 0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/rhino 0 guidance lantent 4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/rhino 0 guidance latent 9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/rhino 0 guidance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/rhino 1 guidance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/traditional vis.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/traditional vs new.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/part1/traditional vs new_dog.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_progress.html" beforeDir="false" afterPath="$PROJECT_DIR$/project_progress.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +68,7 @@
       <workItem from="1666591912197" duration="7276000" />
       <workItem from="1666599757265" duration="412000" />
       <workItem from="1670740044515" duration="42000" />
-      <workItem from="1670740128239" duration="5091000" />
+      <workItem from="1670740128239" duration="5586000" />
     </task>
     <servers />
   </component>

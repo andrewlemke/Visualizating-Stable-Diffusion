@@ -15,12 +15,13 @@ body, td, th {
 .fulljustify {
   text-align:justify;
 }
-.fulljustify:
-after {
-  content: "    ";
-  display: inline-block;
-  width: 95%;
-}
+/*.fulljustify:*/
+/*after {*/
+/*  content: "    ";*/
+/*  display: inline-block;*/
+/*  width: 95%;*/
+/*}*/
+
 #tagline {
   height: 80px;
   overflow: hidden;
@@ -95,4 +96,12 @@ h2 {
 }
 nobr.widenobr {
   white-space: normal;
+}
+
+.wd-title {
+  color: darkblue;
+}
+
+.wd-grey {
+  color: dimgrey;
 }
