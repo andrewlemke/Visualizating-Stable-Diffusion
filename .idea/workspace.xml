@@ -2,12 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a58336a-c4fd-4d10-9aed-715e535c98a4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/project_progress.html" beforeDir="false" afterPath="$PROJECT_DIR$/project_progress.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final_project_report.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/HF_stable_diffusion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/clowns bad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/clowns good.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/clowns ok.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/code example.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/cond uncond agg plot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/cond uncond analysis table.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/eiffel tower/35 shadow.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/eiffel tower/desktop.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/eiffel tower/end.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/eiffel tower/steop 0.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/eiffel tower/step 15 details.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/pyramids conditioning diff.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/q and p.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/q process.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/quick finish rhino.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/quick finish scheduler.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/rhino 0 guidance lantent 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/rhino 0 guidance lantent 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/rhino 0 guidance latent 9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/rhino 0 guidance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/rhino 1 guidance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/traditional vis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/traditional vs new.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/part1/traditional vs new_dog.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -20,15 +55,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.notifications&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Visualizating-Stable-Diffusion" />
@@ -56,6 +92,8 @@
       <workItem from="1666591476887" duration="334000" />
       <workItem from="1666591912197" duration="7276000" />
       <workItem from="1666599757265" duration="412000" />
+      <workItem from="1670740044515" duration="42000" />
+      <workItem from="1670740128239" duration="5091000" />
     </task>
     <servers />
   </component>

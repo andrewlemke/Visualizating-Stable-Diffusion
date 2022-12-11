@@ -4,6 +4,13 @@ body, td, th {
   /*font-size: small;*/
 }
 
+.wd-title {
+  color: darkblue;
+}
+
+.wd-grey {
+  color: dimgrey;
+}
 
 .fulljustify {
   text-align:justify;
@@ -43,6 +50,7 @@ h2 {
 .nd-pageheader a, .nd-pageheader a.likelink {
   color: #e4f1fe;
 }
+
 
 .nd-pagefooter {
   color: white;

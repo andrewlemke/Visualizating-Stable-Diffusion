@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Progress: Milestone 2</title>
+    <!--  Bootstrap library-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <!--  Font awesome-->
+    <script src="https://kit.fontawesome.com/cc0f635f1e.js" crossorigin="anonymous"></script>
+    <!--  Style sheet link-->
+    <link href="/style.css" rel="stylesheet" />
+
+</head>
+
+<body class = "bg-light text-dark">
+
+<!--Main container with margin on top and bottom-->
+<div class="container p-2 my-3">
+    <div>
+        <h4 class="wd-grey">CS 7150 Final Project</h4> <!--  Heading-->
+        <h5 class="wd-grey">Deep Learning by Professor David Bau, Fall 2022</h5>
+    </div>
+
+<!--    <h2>Link to Previous Reports</h2>-->
+<!--    <ul>-->
+<!--        <li><a href="./proposal.html">Project Proposal</a></li>-->
+<!--        <li><a href="./project_progress.html">Project Progress: Milestone 2</a></li>-->
+<!--    </ul>-->
+
+    <h2 class = "mt-5 text-nowrap wd-title">Probing Latent Diffusion</h2>
+    <h6 class = "fst-italic text-muted mb-1">Andrew Lemke & Lakshyana KC</h6>
+
+    <!--  Section start-->
+    <div class="col-xxl-10 col-xl-9 col-lg-8 col-md-11 col-sm-10 col-15">
+
+        <div class="mx-2">
+
+            <!-- Introduction-->
+            <div class = "text-dark" >
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Introduction</h4>
+
+                <p class="fulljustify">
+                    Diffusion models’ high quality generations and capability to condition on text brought praise and interest to this development. Examination of the model’s denoising process leads one to the traditional visualization, which shows each intermittent latent processed through the VAE, producing a series of images showing a form appearing out of noise. This interrogation leaves many questions about the models behavior, especially as much of the first half of this visualization is too noisy to determine what actions the model is taking. The nature of the prompt’s grammar and impact is also unclear. We aim to answer these questions by probing the latent space of the model, and visualizing the results.
+                </p>
+
+                <p class="fulljustify">
+                    To discover more about the diffusion process, we constructed four probes that reveal behavior of the model not observable in the traditional visualization. Probes 1 and 3 indicate the model takes only a few steps to determine the sketch of the final output, with probe 3 showing the model’s focus at various steps. Probe 2 investigates the impact of conditioning between generations with good and bad prompt synthesis.
+                </p>
+
+                <p class="fulljustify">
+                    Probe 4 performs a text-image attribution analysis on the Stable Diffusion model with the help of the diffusion attentive attribution maps (DAAM) method, which is based on interpreting the model using aggregated and upsampled cross attention scores [6]. We use this method to probe into the stable diffusion model’s visual reasoning abilities such as compositional reasoning, object recognition and counting, and spatial and object-attribute relationship understanding. This investigation indicates that the model demonstrates a higher accuracy in representing the correct actions and objects based on the prompts in the generated image, compared to their counts and relationships. In addition, when evaluating the model’s general performance after categorizing the attention scores for a word by its parts of speech, certain word types such as nouns and verbs were observed to have a higher attention score distribution over the generated images in comparison to adjectives and numerals.
+
+                <p class="fulljustify">
+                While comparing the model’s outputs for the same prompt over multiple experiments, the model showed varying performance in several prompts. While some experiments showcased an accurate heat-map and image generation that captured each object and relationships conveyed by the prompt, others had some attributes or objects from the prompt missing in several cases, indicating a relatively weaker visual reasoning skills of the model in comparison to what its realistic image generation capabilities might indicate.
+                </p>
+
+<!--                Background-->
+                <h4 class="mt-5 fw-bolder text-nowrap">Background</h4>
+
+                <h5 class="mt-3 text-nowrap">Diffusion Models</h5>
+
+                <p class="fulljustify">
+                    Diffusion models are generative models that learn to gradually remove noise from data. In inference mode, they generate data after iterative denoising a random initial seed. These models gained popularity in the image generation space where they can be trained to generate images conditioned on a text input, which is the kind of model we explored here.
+                </p>
+
+                <p class="fulljustify">
+                    The idea for this type of model started in 2015 with Sohl-Dickstein et al., and was improved upon in 2019 and 2020, where it gained enough capability and traction to break out on to the image generation scene (2).
+                </p>
+
+                <p class="fulljustify">
+                    The following model is often presented to describe the noising process. An image starts at time t=0, and q gradually adds noise to the image over a number of steps until the image is pure gaussian noise at t=T. The reverse process p removes the noise at a particular step. (1)
+                </p>
+
+                <p class="d-flex justify-content-center">
+                <figure class="figure">
+                    <img src="./img/part1/q and p.PNG" class="figure-img img-fluid rounded" alt="figure.">
+                    <figcaption class="figure-caption text-center">Figure 1.1: The noise addition and removal process from Ho, Jain, Abbeel (1).</figcaption>
+                </figure>
+                </p>
+
+                <p class="fulljustify">
+                    Writing the q process is fairly simple. To calculate the q at the next timestep, we sample some gaussian from the previous timestep with a mean and variance that also depend on some parameter beta . Beta increases with t between (non inclusive) 0 and 1. The schedule of the betas can be altered as a hyperparameter of the process. The key point is that at time t=T, the image must be noised so much that it is indistinguishable from gaussian noise, in other words, no “signal” remains.
+                </p>
+
+                <p class="d-flex justify-content-center">
+                <figure class="figure">
+                    <img src="./img/part1/q process.PNG" class="figure-img img-fluid rounded" alt="figure.">
+                    <figcaption class="figure-caption text-center">Figure 1.2: Forward nosing process (2).</figcaption>
+                </figure>
+                </p>
+
+                <p class="fulljustify">
+                    The p process is the hard part, in fact, it is intractable as it requires knowing the total distribution of all images. The diffusion network is trained to learn how to do the p process. In practice, Ho et al. finds predicting the noise added “performs approximately as well as predicting [the mean] when trained on the variational bound with fixed variances, but much better [performance] when trained with our simplified objective,” alluding to some theoretical simplifications made in their paper.
+                </p>
+
+                <p class="fulljustify">
+                    In architecture, the noise predictor relies on U-nets. The timestep is incorporated as a positional embedding. The HuggingFace implementation (whose weights are freely available) (3) is based on the Ho et al. implementation, who adapted Wide ResNets from Sergey Zagoruyko and Nikos Komodakis (4) with minimal changes.
+
+                </p>
+
+                <p class="fulljustify">
+                    The text to image model investigated in this report relies on a diffusion model, as described above, in combination with a text encoder to embed the prompt, and a VAE to transform the latent produced by the diffusion into image space. Training data comes from a set of images and associated texts.
+
+                </p>
+
+
+                <p class="d-flex justify-content-center">
+                <figure class="figure">
+                    <img src="./img/part1/HF_stable_diffusion.png" width="400" height="400" class="figure-img img-fluid rounded" alt="figure.">
+                    <figcaption class="figure-caption text-center">Figure 1.3:  Latent diffusion inference, text to image (5).</figcaption>
+                </figure>
+                </p>
+
+                <p class="fulljustify">
+                    In code, the process is slightly more complicated. To increase performance, the impact of the conditioning is boosted by a factor called the guidance scale. When the diffusion loop runs once, it actually diffuses two latents. One latent is diffused with the prompt and another is diffused without it, which in practice happens by conditioning it on an empty string embedded by the text encoder. The difference between these two can be seen as the impact of conditioning. It is calculated by subtracting the unconditioned latent (empty string one) from the conditioned latent (prompt one). This difference is multiplied by a scalar in the neighborhood of 5-10 and added to the unconditioned latent, increasing the impact of the prompt during the diffusion process. The code below is based on the “writing your own diffusion pipeline” section of citation number 5.
+                </p>
+
+                <p class="d-flex justify-content-center">
+                <figure class="figure">
+                    <img src="./img/part1/code example.PNG" width="450" height="400" class="figure-img img-fluid rounded" alt="figure.">
+                    <figcaption class="figure-caption text-center">Figure 1.4:  Latent diffusion inference, text to image (5).</figcaption>
+                </figure>
+                </p>
+
+
+                <h5 class="mt-5 text-nowrap">Diffusion Model Attribution</h5>
+
+                <p class="fulljustify">
+                With increasingly complex neural network models in use, attribution has become an important method to better understand the basis of a model’s predictions. Attribution is a way to characterize a model’s response by identifying the parts of an input that are responsible for its output [7]. Most of the attribution methods currently in use are mainly perturbation and gradient based [8,9]. The gradient based methods involve some modification of the backpropagation algorithm to backtrack the network activations from the output back to the input, which when applied to vision models, result in saliency maps highlighting important regions in the input image [9].  The perturbation methods perform analysis of the effects of perturbing the network’s input on the corresponding outputs by observing the effects of selectively removing or occluding parts of the input on the output [9, 10].
+                </p>
+
+                <p class="fulljustify">
+                    Although the gradient-based attribution is used for visualizing the saliency maps for vision models, it is not feasible for diffusion models, as the costly backprogation computation is needed for each pixel across all the timesteps and the perturbation attribution are challenging to interpret owing to high sensitivity of diffusion models to even minor perturbations [6]. As a result, Tang et. al. have proposed a text-image cross attention attribution method called diffusion attentive attribution maps (DAAM) to visualize the influence of each input word on the generated image output. Their method enables a pixel level attribution map generation for each word of the prompt. To obtain the maps, this method upscales the multiscale word-pixel cross-attention scores obtained for the latent image representations in the denoising sub-network, and aggregates these scores across the spatio-temporal dimensions to then overlay each map obtained for an input word over the generated image [6].
+
+                </p>
+
+                <p class="fulljustify">
+                    We thereby apply the DAAM attribution method to probe into the stable diffusion model to visualize the spatial locality of attribution conditioned on each input word. This attribution technique also enables a way to qualitatively study the stable diffusion model’s understanding of concepts and behavior for input words based on their parts of speech.
+                </p>
+
+
+
+<!--                <h4 class="mt-5 fw-bolder text-nowrap"></h4>-->
+
+<!--                <p class="fulljustify">-->
+
+<!--                </p>-->
+
+
+<!--                <p class="d-flex justify-content-center">-->
+<!--                <figure class="figure">-->
+<!--                    <img src="./img/part1/" width="450" height="400" class="figure-img img-fluid rounded" alt="figure.">-->
+<!--                    <figcaption class="figure-captions text-center">Figure 1.4:  .</figcaption>-->
+<!--                </figure>-->
+<!--                </p>-->
+
+            <!--            Experiment 3-->
+
+        </div> <!--Section div-->
+
+    </div><!-- End of section main div-->
+
+</div>
+</body>
+</html>
