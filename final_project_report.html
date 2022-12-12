@@ -417,8 +417,13 @@
                 <h4 class="mt-5 fw-bolder text-nowrap">Methodology
                 </h4>
 
-                When generating an image with latent diffusion, two latents are processed in each step of size (4, 64, 64). One is conditioned on the prompt and another is unconditioned, receiving an embedded empty string as its conditioning in practice. The difference between these two latents is calculated, scaled by a factor called the guidance scale (usually around 5-10, and is a hyperparameter one can set), and then added to the unconditioned prompt. Taking the difference of these latents, we can see the model’s behavior in terms of just the prompt impact. The model denoises and conditions on the prompt at the same time in each step, but by subtracting the unconditioned latent, we can remove the exclusively denoising changes. Technically, the model predicts the noise added on each step by the noising process, which is hypothetical when running the model in inference mode to generate new images. To calculate the difference between the latent after this predicted noise has been removed for both conditioned and unconditioned noise predictions, we start with the following:
-                <div>
+
+                <p class="fulljustify">
+                    When generating an image with latent diffusion, two latents are processed in each step of size (4, 64, 64). One is conditioned on the prompt and another is unconditioned, receiving an embedded empty string as its conditioning in practice. The difference between these two latents is calculated, scaled by a factor called the guidance scale (usually around 5-10, and is a hyperparameter one can set), and then added to the unconditioned prompt. Taking the difference of these latents, we can see the model’s behavior in terms of just the prompt impact. The model denoises and conditions on the prompt at the same time in each step, but by subtracting the unconditioned latent, we can remove the exclusively denoising changes. Technically, the model predicts the noise added on each step by the noising process, which is hypothetical when running the model in inference mode to generate new images. To calculate the difference between the latent after this predicted noise has been removed for both conditioned and unconditioned noise predictions, we start with the following:
+
+                </p>
+
+               <div>
                     <br>
                     \begin{aligned}
                     \text{new conditioned latent} &= \text{old latent} - \text{noise conditioned} \\
@@ -745,10 +750,14 @@
                     In addition, in some cases, we observed a varied performance of the model with accurate representations of all the components of the prompts in some cases, and missing objects or misalignment of spatial and object-attribute relationships in the other.
                 </p>
 
+
+
+
+
                 <h4 class="mt-5 fw-bolder text-nowrap">Citations
                 </h4>
 
-                <ol>
+                <ol class="fulljustify">
                     <li>Ho, J., Jain, A., & Abbeel, P.. (2020). Denoising Diffusion Probabilistic Models.
                     </li>
                     <ul>
@@ -863,6 +872,146 @@
 
 
                 </ol>
+
+
+
+                <h4 class="mt-5 fw-bolder text-nowrap">Appendices
+                </h4>
+                <br>
+
+                <h5 class="mx-0 px-0 text-nowrap">Code Links
+                </h5>
+
+                <ul class="fulljustify" type="none">
+
+                    <li>
+                        <sp class="fw-bold">Diffusion Model:</sp> Notebook where the diffusion model is run for Probes 1-3. This notebook generates images with latent diffusion and stores the results. Intermediates and other metrics are recorded as well.
+                    </li>
+
+                    <ul>
+                        <li >
+                            <a href="https://colab.research.google.com/drive/1nihHHmIaTnirqoAN4EAyIH6ICSOvvzYd?usp=sharing" target="_blank">
+                                https://colab.research.google.com/drive/1nihHHmIaTnirqoAN4EAyIH6ICSOvvzYd?usp=sharing
+                            </a>
+                        </li>
+                    </ul>
+
+                    <br>
+                    <li>
+                        <sp class="fw-bold">Quick finish:</sp> Notebook where the Quick Finish Strategy is explored.
+
+                    </li>
+                    <ul>
+                        <li >
+                            <a href="https://colab.research.google.com/drive/1bCEVwgEcv1F_fNuTyInMTovRFYwSN8NE?usp=sharing" target="_blank">
+                                https://colab.research.google.com/drive/1bCEVwgEcv1F_fNuTyInMTovRFYwSN8NE?usp=sharing
+                         </a>
+                        </li>
+                    </ul>
+
+
+                    <br>
+                    <li>
+                        <sp class="fw-bold">Conditioned-unconditioned differences per prompt.</sp> Notebook where the conditioned-unconditioned differences are analyzed from Probe 2. This analysis is for each prompt separately.
+
+                    </li>
+                    <ul>
+                        <li >
+                            <a href="https://colab.research.google.com/drive/1UH70m-tnGRlurxf8JDCLBT2cktSgbvRX?usp=sharing"
+                               target="_blank">
+                                https://colab.research.google.com/drive/1UH70m-tnGRlurxf8JDCLBT2cktSgbvRX?usp=sharing
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <br>
+                    <li>
+                        <sp class="fw-bold">Aggregate conditioned-unconditioned differences.</sp>
+                        Notebook where the aggregate conditioned-unconditioned differences are analyzed from Probe 2. Here, the results from the 130 runs are examined as a whole.
+
+                    </li>
+                    <ul>
+                        <li >
+                            <a href="https://colab.research.google.com/drive/1Qd5Da7sFoAvPRYkiTZ0Um8MQAN0CmWWJ?usp=sharing"
+                               target="_blank">
+                                https://colab.research.google.com/drive/1Qd5Da7sFoAvPRYkiTZ0Um8MQAN0CmWWJ?usp=sharing
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+                    <br>
+                    <li>
+                        <sp class="fw-bold">Conditioned-unconditioned difference map visualization.</sp>
+                        Notebook where the conditioned-unconditioned difference’s nature is examined. This notebook corresponds with Probe 3.
+
+                    </li>
+                    <ul>
+                        <li >
+                            <a href="https://colab.research.google.com/drive/1a6j3ainSF88Un_HU-p-WlGzwHJRniqta?usp=sharing" target="_blank">
+                                https://colab.research.google.com/drive/1a6j3ainSF88Un_HU-p-WlGzwHJRniqta?usp=sharing
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <br>
+                    <li>
+                        <sp class="fw-bold">Latent diffusion pre-computed.</sp>
+                        Data folder holding the outputs and intermediate variables for many diffusion runs. Many notebooks pull from the folder. It is easier to generate many images and then pull from the stored results rather than load and run the diffusion model on demand as the model required GPU and high amounts of RAM.
+
+                    </li>
+                    <ul>
+                        <li >
+                            <a href="https://drive.google.com/drive/folders/1tt_jKl5AJNZFI9EiRkRgLJVKexHX37-5?usp=sharing" target="_blank">
+                                https://drive.google.com/drive/folders/1tt_jKl5AJNZFI9EiRkRgLJVKexHX37-5?usp=sharing
+                           </a>
+                        </li>
+                    </ul>
+
+
+                    <br>
+                    <li>
+                        <sp class="fw-bold">Results for aggregation. </sp>
+                        Data Folder holding the results from aggregating the conditioned unconditioned differences. This folder is needed for the notebook “Aggregate conditioned-unconditioned differences”
+                    </li>
+                    <ul>
+                        <li >
+                            <a href="https://drive.google.com/drive/folders/1YZ3IgvBcYxa33GJGckUnm9RZV5QeqeU8?usp=sharing" target="_blank">
+                                https://drive.google.com/drive/folders/1YZ3IgvBcYxa33GJGckUnm9RZV5QeqeU8?usp=sharing
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+
+
+
+
+
+                </ul>
+
+
+
+
+
+
+
+
+
+            </div> <!--Section div-->
+
+        </div><!-- End of section main div-->
+
+    </div>
+
+</div>
+
+</body>
+</html>
 
 
 
