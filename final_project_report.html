@@ -586,7 +586,7 @@
                 </h4>
 
                 <p class="fulljustify">
-                    The initial analysis involved qualitatively assessing the attention activation maps for each input word using prompts that would require the model to compose different ideas and concepts to render a realistic representation. For instance, figures XXXXX represent some of the sample prompts and the resulting visualizations from the initial experiment.
+                    The initial analysis involved qualitatively assessing the attention activation maps for each input word using prompts that would require the model to compose different ideas and concepts to render a realistic representation. For instance, figures 2.8 represent some of the sample prompts and the resulting visualizations from the initial experiment.
                 </p>
 
 
@@ -637,11 +637,11 @@
 
 
                 <p class="fulljustify">
-                    In the additional experiments, after carrying out several experiments using the “Comp Vis V1.4” and “Runway ML” stability diffusion models for 30 and 60 inference steps on 50-60 prompts curated from the frequent words from COCO caption dataset, we found similar behavior from the models overall. Some of the visualization results for different categories of prompts are shown in the tables (XXXXXXX)
+                    In the additional experiments, after carrying out several experiments using the “Comp Vis V1.4” and “Runway ML” stability diffusion models for 30 and 60 inference steps on 50-60 prompts curated from the frequent words from COCO caption dataset, we found similar behavior from the models overall. Some of the visualization results for different categories of prompts are shown in the tables 2.2 and 2.3 below.
                 </p>
 
                 <p class="fulljustify">
-                    In addition to the visual qualitative experiment, we computed the mean and standard deviation of the normalized attention scores for each input word across 50-60 prompts and categorized them by their POS tags, and plotted the corresponding plots for each category. These plots are shown in Figure (XXXXXX)
+                    In addition to the visual qualitative experiment, we computed the mean and standard deviation of the normalized attention scores for each input word across 50-60 prompts and categorized them by their POS tags, and plotted the corresponding plots for each category. These plots are shown in Figure 2.9
 
                 </p>
 
@@ -665,33 +665,16 @@
                 </figcaption>
             </div>
 
-<!--                <div class="text-center">-->
-<!--                    <figure class="figure">-->
-<!--                        <img src="./img/part2/image21.png" width="150" class="figure-img img-fluid rounded" alt="figure.">-->
-<!--                        <img src="./img/part2/image76.png" width="200" class="figure-img img-fluid rounded" alt="figure.">-->
-<!--                        <img src="./img/part2/image71.png" width="150" class="figure-img img-fluid rounded" alt="figure.">-->
-<!--                        <img src="./img/part2/image61.png" width="200" class="figure-img img-fluid rounded" alt="figure.">-->
-
-<!--                        <img src="./img/part2/image47.png" width="150" class="figure-img img-fluid rounded" alt="figure.">-->
-<!--                        <img src="./img/part2/image8.png" width="200" class="figure-img img-fluid rounded" alt="figure.">-->
-<!--                        <img src="./img/part2/image36.png" width="150" class="figure-img img-fluid rounded" alt="figure.">-->
-<!--                        <img src="./img/part2/image30.png" width="200" class="figure-img img-fluid rounded" alt="figure.">-->
-
-<!--                        <img src="./img/part2/image41.png" width="200" class="figure-img img-fluid rounded" alt="figure.">-->
-<!--                        <img src="./img/part2/image23.png" width="250" class="figure-img img-fluid rounded" alt="figure.">-->
-<!--                        &lt;!&ndash;                        <img src="./img/part2/image36.png" width="150" class="figure-img img-fluid rounded" alt="figure.">&ndash;&gt;-->
-<!--                        <img src="./img/part2/image82.png" width="250" class="figure-img img-fluid rounded" alt="figure.">-->
-
-<!--                    </figure>-->
 
 
-                <br>
+            <br>
 
-                <span class="table-responsive w-100 d-flex justify-items-center">
+<!--                Table 1-->
+            <span class="table-responsive w-100 d-flex justify-items-center">
 <!--                Table 1-->
                     <div>
                     <table class="table">
-                        <caption>List of users</caption>
+                        <caption>Table 2.2: Example Visualizations from Qualitative Assessment of Stable Diffusion's Object & Action Recognition and Counting Skills. </caption>
 
                         <thead>
                         <tr>
@@ -1345,6 +1328,757 @@
 
 
                         </tr>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+                </span>
+
+
+<!--                Table 2-->
+            <span class="table-responsive w-100 d-flex justify-items-center">
+                    <div>
+                    <table class="table">
+                        <caption>Table 2.3: Example Visualizations from Qualitative Assessment of Stable Diffusion's Spatial and Object-Attribute Understanding Skills. </caption>
+
+                        <thead>
+                        <tr>
+                            <th scope="col" colspan="3" class="text-center">
+
+                                <div class="text-center">
+                                    <div class="">Skill: Spatial and Object-Attribute Relationship</div>
+
+                                    <div class="fw-lighter"
+                                         style="font-size: 0.7em">
+                                        (Generating specific objects with different spatial relation or attributes)
+
+                                    </div>
+                                </div>
+                            </th>
+
+<!--                            <th scope="col" colspan="2" class="text-center">-->
+
+<!--                                <div class="text-center">-->
+<!--                                    <div class="">Skill: Object Counting</div>-->
+
+<!--                                    <div class="fw-lighter"-->
+<!--                                         style="font-size: 0.7em">-->
+<!--                                         (Generating specific number of objects)-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </th>-->
+
+
+                        </tr>
+                        </thead>
+
+
+                        <tr>
+                            <th scope="col" class="text-center">
+                                <div class="text-center">
+                                    <div class="fw-lighter"
+                                         style="font-size: 0.8em">
+                                        Model
+                                    </div>
+                                </div>
+                            </th>
+
+                            <th scope="col" class="text-center">
+                                <div class="text-center text-nowrap">
+                                    <div class="fw-lighter"
+                                         style="font-size: 0.8em">
+                                        Runway ML Stable Diffusion V1.5
+                                    </div>
+                                </div>
+                            </th>
+
+                            <th scope="col" class="text-center">
+                                <div class="text-center text-nowrap">
+                                    <div class="fw-lighter"
+                                         style="font-size: 0.8em">
+                                        Com Vis Stable Diffusion V1.4
+
+                                    </div>
+                                </div>
+                            </th>
+
+
+<!--                                <th scope="col" class="text-center">-->
+<!--                                    <div class="text-center text-nowrap">-->
+<!--                                        <div class="fw-lighter"-->
+<!--                                             style="font-size: 0.8em">-->
+<!--                                            Runway ML Stable Diffusion V1.5-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </th>-->
+
+<!--                                <th scope="col" class="text-center">-->
+<!--                                    <div class="text-center text-nowrap">-->
+<!--                                        <div class="fw-lighter"-->
+<!--                                             style="font-size: 0.8em">-->
+<!--                                            Com Vis Stable Diffusion V1.4-->
+
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </th>-->
+
+                        </tr>
+
+
+                        <!-- Row with prompt and two figures-->
+                        <tr>
+                            <th scope="col" colspan="3" class="text-center">
+                                <div class="text-center">
+                                    <div class=""
+                                         style="font-size: 0.9em">
+                                        Prompt: A toy ship inside a glass bottle
+
+                                    </div>
+                                </div>
+                            </th>
+
+<!--                            <th scope="col" colspan="2" class="text-center">-->
+<!--                                <div class="text-center">-->
+<!--                                    <div class=""-->
+<!--                                         style="font-size: 0.9em">-->
+<!--                                        Prompt: A new pair of red shoes tied to a tree branch-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </th>-->
+
+                        </tr>
+
+
+                        </thead>
+
+                        <tbody>
+
+                        <tr>
+                            <th scope="row">
+<!--                                1-->
+                            </th>
+
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image66.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image53.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+                            </td>
+
+
+
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image54.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+
+<!--                            </td>-->
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image70.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+<!--                            </td>-->
+
+                        </tr>
+
+
+                        <!-- Row with prompt and two figures-->
+                        <tr>
+                            <th scope="col" colspan="3" class="text-center">
+                                <div class="text-center">
+                                    <div class=""
+                                         style="font-size: 0.9em">
+                                        Prompt:  An old man standing to the left of a young woman
+                                    </div>
+                                </div>
+                            </th>
+
+
+<!--                            <th scope="col" colspan="2" class="text-center">-->
+<!--                                <div class="text-center">-->
+<!--                                    <div class=""-->
+<!--                                         style="font-size: 0.9em">-->
+<!--                                       Prompt: Two young giraffes skating in a busy park-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </th>-->
+
+
+                        </tr>
+
+
+                        <tr>
+                            <th scope="row">
+                                <!--                                1-->
+                            </th>
+
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image87.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image33.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+                            </td>
+
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image83.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+
+<!--                            </td>-->
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image55.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+<!--                            </td>-->
+
+
+                        </tr>
+
+
+
+                        <!-- Row with prompt and two figures-->
+                        <tr>
+                            <th scope="col" colspan="3" class="text-center">
+                                <div class="text-center">
+                                    <div class=""
+                                         style="font-size: 0.9em">
+                                        Prompt:  A fish inside a silver cage
+
+                                    </div>
+                                </div>
+                            </th>
+
+
+<!--                            <th scope="col" colspan="2" class="text-center">-->
+<!--                                <div class="text-center">-->
+<!--                                    <div class=""-->
+<!--                                         style="font-size: 0.9em">-->
+<!--                                       Prompt: Three horses running in water-->
+
+
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </th>-->
+                        </tr>
+
+                        <tr>
+                            <th scope="row">
+                                <!--                                1-->
+                            </th>
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image75.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image9.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+                            </td>
+
+
+<!--                        <td>-->
+<!--                            <div class="text-center">-->
+<!--                                <figure class="figure">-->
+<!--                                    <img src="./img/part2/image13.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                </figure>-->
+<!--                            </div>-->
+
+<!--                        </td>-->
+
+<!--                        <td>-->
+<!--                            <div class="text-center">-->
+<!--                                <figure class="figure">-->
+<!--                                    <img src="./img/part2/image31.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                </figure>-->
+<!--                            </div>-->
+<!--                        </td>-->
+
+
+
+                        </tr>
+
+
+                        <!-- Row with prompt and two figures-->
+                        <tr>
+                            <th scope="col" colspan="3" class="text-center">
+                                <div class="text-center">
+                                    <div class=""
+                                         style="font-size: 0.9em">
+                                        Prompt:   Green carrots surrounded by orange apples in a basket
+
+                                    </div>
+                                </div>
+                            </th>
+
+
+<!--                            <th scope="col" colspan="2" class="text-center">-->
+<!--                                <div class="text-center">-->
+<!--                                    <div class=""-->
+<!--                                         style="font-size: 0.9em">-->
+<!--                                       Prompt: Three kids flying a kite from the roof of a wooden house-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </th>-->
+
+                        </tr>
+
+                        <tr>
+                            <th scope="row">
+                                <!--                                1-->
+                            </th>
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image80.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image51.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+                            </td>
+
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image2.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+
+<!--                            </td>-->
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image62.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+<!--                            </td>-->
+
+                        </tr>
+
+
+                        <!-- Row with prompt and two figures-->
+                        <tr>
+                            <th scope="col" colspan="3" class="text-center">
+                                <div class="text-center">
+                                    <div class=""
+                                         style="font-size: 0.9em">
+                                        Prompt: Apple shaped chocolate served in a flat bowl
+                                    </div>
+                                </div>
+                            </th>
+
+<!--                            <th scope="col" colspan="2" class="text-center">-->
+<!--                            <div class="text-center">-->
+<!--                                    <div class=""-->
+<!--                                         style="font-size: 0.9em">-->
+<!--                                       Prompt:A man carrying three bags-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </th>-->
+
+
+                        </tr>
+
+                        <tr>
+                            <th scope="row">
+                                <!--                                1-->
+                            </th>
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image28.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image57.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+                            </td>
+
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image56.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+
+<!--                            </td>-->
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image12.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+<!--                            </td>-->
+
+                        </tr>
+
+
+                        <!-- Row with prompt and two figures-->
+                        <tr>
+                            <th scope="col" colspan="3" class="text-center">
+                                <div class="text-center">
+                                    <div class=""
+                                         style="font-size: 0.9em">
+                                        Prompt:   A pink cat playing soccer at the beach with a black sheep
+                                    </div>
+                                </div>
+                            </th>
+
+<!--                            <th scope="col" colspan="3" class="text-center">-->
+<!--                                <div class="text-center">-->
+<!--                                    <div class=""-->
+<!--                                         style="font-size: 0.9em">-->
+<!--                                        Four smiling dogs sitting at a picnic table-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </th>-->
+
+                        </tr>
+
+                        <tr>
+                            <th scope="row">
+                                <!--                                1-->
+                            </th>
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image52.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image29.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+                            </td>
+
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image18.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+
+<!--                            </td>-->
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image10.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+<!--                            </td>-->
+
+                        </tr>
+
+
+
+                        <!-- Row with prompt and two figures-->
+                        <tr>
+                            <th scope="col" colspan="3" class="text-center">
+                                <div class="text-center">
+                                    <div class=""
+                                         style="font-size: 0.9em">
+                                        Prompt:  Several purple birds swimming across a giant wooden hot tub
+                                    </div>
+                                </div>
+                            </th>
+
+
+<!--                            <th scope="col" colspan="3" class="text-center">-->
+<!--                                <div class="text-center">-->
+<!--                                    <div class=""-->
+<!--                                         style="font-size: 0.9em">-->
+<!--                                        Prompt:  Four professional men jumping in front of a commercial building-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </th>-->
+
+                        </tr>
+
+                        <tr>
+                            <th scope="row">
+                                <!--                                1-->
+                            </th>
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image81.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image6.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+                            </td>
+
+
+<!--                           <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image78.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+
+<!--                            </td>-->
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image65.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+<!--                            </td>-->
+
+                        </tr>
+
+
+                        <!-- Row with prompt and two figures-->
+                        <tr>
+                            <th scope="col" colspan="3" class="text-center">
+                                <div class="text-center">
+                                    <div class=""
+                                         style="font-size: 0.9em">
+                                        Prompt:  A skateboarder standing atop a square shaped rock
+                                    </div>
+                                </div>
+                            </th>
+
+
+<!--                            <th scope="col" colspan="3" class="text-center">-->
+<!--                                <div class="text-center">-->
+<!--                                    <div class=""-->
+<!--                                         style="font-size: 0.9em">-->
+<!--                                        Prompt:  Five zebras in the middle of a tennis court-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </th>-->
+
+
+                        </tr>
+
+                        <tr>
+                            <th scope="row">
+                                <!--                                1-->
+                            </th>
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image16.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image17.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+                            </td>
+
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image27.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+
+<!--                            </td>-->
+
+<!--                            <td>-->
+<!--                                <div class="text-center">-->
+<!--                                    <figure class="figure">-->
+<!--                                        <img src="./img/part2/image7.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+<!--                                    </figure>-->
+<!--                                </div>-->
+<!--                            </td>-->
+
+
+                        </tr>
+
+
+
+                        <!-- Row with prompt and two figures-->
+                        <tr>
+                            <th scope="col" colspan="3" class="text-center">
+                                <div class="text-center">
+                                    <div class=""
+                                         style="font-size: 0.9em">
+                                        Prompt:  A giant mouse posing with a small cat
+                                    </div>
+                                </div>
+                            </th>
+
+
+                            <!--                            <th scope="col" colspan="3" class="text-center">-->
+                            <!--                                <div class="text-center">-->
+                            <!--                                    <div class=""-->
+                            <!--                                         style="font-size: 0.9em">-->
+                            <!--                                        Prompt:  Five zebras in the middle of a tennis court-->
+
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </th>-->
+
+
+                        </tr>
+
+                        <tr>
+                            <th scope="row">
+                                <!--                                1-->
+                            </th>
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image1.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="text-center">
+                                    <figure class="figure">
+                                        <img src="./img/part2/image72.png" width="" class="figure-img img-fluid rounded" alt="figure.">
+
+                                    </figure>
+                                </div>
+                            </td>
+
+
+                            <!--                            <td>-->
+                            <!--                                <div class="text-center">-->
+                            <!--                                    <figure class="figure">-->
+                            <!--                                        <img src="./img/part2/image27.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+                            <!--                                    </figure>-->
+                            <!--                                </div>-->
+
+                            <!--                            </td>-->
+
+                            <!--                            <td>-->
+                            <!--                                <div class="text-center">-->
+                            <!--                                    <figure class="figure">-->
+                            <!--                                        <img src="./img/part2/image7.png" width="" class="figure-img img-fluid rounded" alt="figure.">-->
+
+                            <!--                                    </figure>-->
+                            <!--                                </div>-->
+                            <!--                            </td>-->
+
+
+                        </tr>
+
+
 
 
 
